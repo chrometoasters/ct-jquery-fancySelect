@@ -23,15 +23,11 @@ Ensure that the following assets are loaded by your page:
 
 #### CSS
 
-##### Default
-
-Import the precompiled CSS:
+Either import the precompiled CSS:
 
 1. `dist/ct-jquery-fancySelect.css` (this plugin, bundled)
 
-##### Custom
-
-Import the uncompiled CSS:
+Or the uncompiled SCSS:
 
 1. `dev/ct-jquery-fancySelect.scss` (this plugin, bundled)
 
