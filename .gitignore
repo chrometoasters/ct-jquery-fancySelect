@@ -1,0 +1,2 @@
+# Ignore the bower_components folder that is created when bower install is run
+bower_components
