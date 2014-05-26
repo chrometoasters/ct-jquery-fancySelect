@@ -39,7 +39,7 @@ Base styles are set in `dev/_jquery.ui.theme.scss`.
 
 Variables are contained within a Sass map to namespace them to this plugin.
 
-To override these you will need to copy the entire `$fancySelect: (...)` map into your own `_variables.scss` file, then change any values as you see fit.
+To override these you will need to copy the entire `$fancySelect: (...)` map into your own `_variables.scss` file (omitting the ` !default`), then change any values as you see fit.
 
 #### JavaScript
 
