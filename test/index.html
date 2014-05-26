@@ -8,6 +8,14 @@
     <script src="../bower_components/qunit/qunit.js"></script>
     <!-- Plugin to test + jQuery version the code was developed for -->
     <script src="../bower_components/jquery/jquery.min.js"></script>
+    <!--<script src="../bower_components/jquery-ui/ui/jquery-ui-1.10.3.custom.js"></script> unsure if this version is reqd -->
+    <script src="../bower_components/jquery-ui/ui/jquery.ui.core.js"></script>
+    <script src="../bower_components/jquery-ui/ui/jquery.ui.widget.js"></script>
+    <script src="../bower_components/jquery-ui/ui/jquery.ui.position.js"></script>
+    <script src="../bower_components/jquery-ui/ui/jquery.ui.selectmenu.js"></script>
+    <link href="../bower_components/jquery-ui/themes/base/jquery.ui.core.css" rel="stylesheet" />
+    <link href="../bower_components/jquery-ui/themes/base/jquery.ui.theme.css" rel="stylesheet" />
+    <link href="../bower_components/jquery-ui/themes/base/jquery.ui.selectmenu.css" rel="stylesheet" />
     <script src="../dev/ct-jquery-fancySelect.js"></script>
     <!-- QUnit tests -->
     <script src="test.js"></script>
@@ -21,9 +29,62 @@
 
     <div id="qunit-fixture">
 
-        <!-- Add Test HTML here -->
+        <div class="m-form">
+            <form>
+                <div class="m-form--fieldset-wrapper">
+                    <fieldset>
+                        <legend class="hidden">Course details</legend>
+                        <div class="m-form--fieldset-liner">
+                        <ul>
+                            <!-- this item is not required, and has not been validated -->
+                            <li>
+                                <label for="m-form_formname--fieldname-select-1">Field name</label>
+                                <select name="fieldname" aria-required="false" id="m-form_formname--fieldname-select-1">
+                                    <option value="" selected="selected">Please select</option>
+                                    <option value="option1">Option 1</option>
+                                    <option value="option2">Option 2</option>
+                                    <option value="option3">Option 3</option>
+                                </select>
+                            </li>
+                            <!-- this item is required, and has not been validated -->
+                            <li>
+                                <label for="m-form_formname--fieldname-select-2">Field name</label>
+                                <select name="fieldname" aria-required="true" id="m-form_formname--fieldname-select-2">
+                                    <option value="" selected="selected">Please select</option>
+                                    <option value="option1">Option 1</option>
+                                    <option value="option2">Option 2</option>
+                                    <option value="option3">Option 3</option>
+                                </select>
+                            </li>
+                            <!-- this item is required, and has been invalidated -->
+                            <li>
+                                <label for="m-form_formname--fieldname-select-3">Field name</label>
+                                <select name="fieldname" aria-required="true" aria-invalid="true" id="m-form_formname--fieldname-select-3" aria-describedby="m-form_formname--fieldname-select-3-validation">
+                                    <option value="" selected="selected">Please select</option>
+                                    <option value="option1">Option 1</option>
+                                    <option value="option2">Option 2</option>
+                                    <option value="option3">Option 3</option>
+                                </select>
+                                <p class="m-form--validation" id="m-form_formname--fieldname-select-3-validation">Uh-oh! Please enter a FieldDescription</p>
+                            </li>
+                            <!-- this item is required, and has been invalidated, and then validated -->
+                            <li>
+                                <label for="m-form_formname--fieldname-select-4">Field name</label>
+                                <select name="fieldname" aria-required="true" aria-invalid="false" id="m-form_formname--fieldname-select-4">
+                                    <option value="" selected="selected">Please select</option>
+                                    <option value="option1">Option 1</option>
+                                    <option value="option2">Option 2</option>
+                                    <option value="option3">Option 3</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </fieldset>
+                </div>
+            </form>
+        </div>
 
     </div>
+    <!-- /#qunit-fixture -->
 
   </body>
 </html>

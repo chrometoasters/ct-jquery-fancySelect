@@ -1,0 +1,591 @@
+/*!
+ * jQuery UI CSS Framework @VERSION
+ * http://jqueryui.com
+ *
+ * Copyright 2012 jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Theming/API
+ *
+ * Modified by DS @ CT for use with SCSS.
+ * To modify this theme, update the SCSS variables in this file.
+ */
+
+/* SCSS vars */
+
+%ffDefault {
+    @extend %fancySelectFont;
+}
+
+// map-get($fancySelect, VARIABLE_NAME)
+$fancySelect: (
+    fsDefault: 1.1em,
+    fwDefault: normal,
+    fcActive: black !important,
+    fcContent: black !important,
+    fcDefault: black !important,
+    fcError: black !important,
+    fcHeader: black !important,
+    fcHighlight: black !important,
+    fcHover: black !important,
+
+    bgColorActive: white,
+    bgColorContent: white,
+    bgColorDefault: white,
+    bgColorError: white,
+    bgColorHeader: white,
+    bgColorHighlight: white,
+    bgColorHover: white,
+
+    bgImgUrlContent: url(), // url(#{$vendor_path}/jquery-ui/themes/base/images/ui-bg_flat_75_ffffff_40x100.png),
+    bgImgUrlHeader: url(), // url(#{$vendor_path}/jquery-ui/themes/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png),
+    bgImgUrlDefault: url(), // url(#{$vendor_path}/jquery-ui/themes/base/images/ui-bg_glass_75_e6e6e6_1x400.png),
+    bgImgUrlHover: url(), // url(#{$vendor_path}/jquery-ui/themes/base/images/ui-bg_glass_75_dadada_1x400.png),
+    bgImgUrlActive: url(), // url(#{$vendor_path}/jquery-ui/themes/base/images/ui-bg_glass_65_ffffff_1x400.png),
+    bgImgUrlHighlight: url(), // url(#{$vendor_path}/jquery-ui/themes/base/images/ui-bg_glass_55_fbf9ee_1x400.png),
+    bgImgUrlError: url(), // url(#{$vendor_path}/jquery-ui/themes/base/images/ui-bg_glass_95_fef1ec_1x400.png),
+
+    borderColorActive: green,
+    borderColorContent: #666,
+    borderColorError: red,
+    borderColorValid: green, // note: this style remains even when focus is removed from the field (see note on line 212)
+    borderColorHeader: #666,
+    borderColorHighlight: #666,
+    borderColorHover: green, // note: there is no borderColorErrorHover
+    borderColorDefault: #666,
+
+    cornerRadius: 0,
+
+    bgActiveXPos: 50%,
+    bgActiveYPos: 50%,
+    bgContentXPos: 50%,
+    bgContentYPos: 50%,
+    bgDefaultXPos: 50%,
+    bgDefaultYPos: 50%,
+    bgErrorXPos: 50%,
+    bgErrorYPos: 50%,
+    bgHeaderXPos: 50%,
+    bgHeaderYPos: 50%,
+    bgHighlightXPos: 50%,
+    bgHighlightYPos: 50%,
+    bgHoverXPos: 50%,
+    bgHoverYPos: 50%,
+
+    bgActiveRepeat: repeat-x,
+    bgContentRepeat: repeat-x,
+    bgDefaultRepeat: repeat-x,
+    bgErrorRepeat: repeat-x,
+    gHeaderRepeat: repeat-x,
+    bgHighlightRepeat: repeat-x,
+    bgHoverRepeat: repeat-x,
+
+    iconsActive: url(#{$vendor_path}/jquery-ui/themes/base/images/ui-icons_454545_256x240.png),
+    iconsContent: url(#{$vendor_path}/jquery-ui/themes/base/images/ui-icons_222222_256x240.png),
+    iconsDefault: url(#{$vendor_path}/jquery-ui/themes/base/images/ui-icons_888888_256x240.png),
+    iconsError: url(#{$vendor_path}/jquery-ui/themes/base/images/ui-icons_cd0a0a_256x240.png),
+    iconsHeader: url(#{$vendor_path}/jquery-ui/themes/base/images/ui-icons_222222_256x240.png),
+    iconsHighlight: url(#{$vendor_path}/jquery-ui/themes/base/images/ui-icons_2e83ff_256x240.png),
+    iconsHover: url(#{$vendor_path}/jquery-ui/themes/base/images/ui-icons_454545_256x240.png),
+
+    bgColorOverlay: #aaa,
+    bgImgUrlOverlay: url(#{$vendor_path}/jquery-ui/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png),
+    bgOverlayXPos: 50%,
+    bgOverlayYPos: 50%,
+    bgOverlayRepeat: repeat-x,
+    opacityOverlay: 0.3,
+
+    offsetTopShadow: -8px,
+    offsetLeftShadow: -8px,
+    thicknessShadow: 8px,
+    bgColorShadow: #aaa,
+    bgImgUrlShadow: url(#{$vendor_path}/jquery-ui/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png),
+    bgShadowXPos: 50%,
+    bgShadowYPos: 50%,
+    bgShadowRepeat: repeat-x,
+    opacityShadow: 0.3,
+    cornerRadiusShadow: 8px,
+
+    // custom
+    height: 50px,
+    font: "Arial",
+    arrowColor: #141414
+
+);
+
+/* Component containers
+----------------------------------*/
+.ui-widget {
+    @extend %ffDefault;
+    font-size: map-get($fancySelect, fsDefault);
+}
+.ui-widget .ui-widget {
+    font-size: 1em;
+}
+.ui-widget input,
+.ui-widget select,
+.ui-widget textarea,
+.ui-widget button {
+    @extend %ffDefault;
+    font-size: 1em;
+}
+.ui-widget-content {
+    border: 1px solid map-get($fancySelect, borderColorContent);
+    background: map-get($fancySelect, bgColorContent) map-get($fancySelect, bgImgUrlContent) map-get($fancySelect, bgContentXPos) map-get($fancySelect, bgContentYPos) map-get($fancySelect, bgContentRepeat);
+    color: map-get($fancySelect, fcContent);
+}
+.ui-widget-content a {
+    color: map-get($fancySelect, fcContent);
+}
+.ui-widget-header {
+    border: 1px solid map-get($fancySelect, borderColorHeader);
+    background: map-get($fancySelect, bgColorHeader) bgImgUrlHeader map-get($fancySelect, bgHeaderXPos) map-get($fancySelect, bgHeaderYPos) map-get($fancySelect, bgHeaderRepeat);
+    color: map-get($fancySelect, fcHeader);
+    font-weight: bold;
+}
+.ui-widget-header a { color: map-get($fancySelect, fcHeader); }
+
+/* Interaction states
+----------------------------------*/
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+    border: 1px solid map-get($fancySelect, borderColorDefault);
+    background: map-get($fancySelect, map-get($fancySelect, bgColorError))bgColorError map-get($fancySelect, bgImgUrlDefault) map-get($fancySelect, bgDefaultXPos) map-get($fancySelect, bgDefaultYPos) map-get($fancySelect, bgDefaultRepeat);
+    font-weight: map-get($fancySelect, fwDefault);
+    color: map-get($fancySelect, fcDefault);
+}
+.ui-state-default a,
+.ui-state-default a:link,
+.ui-state-default a:visited {
+    color: map-get($fancySelect, fcDefault);
+    text-decoration: none;
+}
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus {
+    border: 1px solid map-get($fancySelect, borderColorHover);
+    background: map-get($fancySelect, bgColorHover) map-get($fancySelect, bgImgUrlHover) map-get($fancySelect, bgHoverXPos) map-get($fancySelect, bgHoverYPos) map-get($fancySelect, bgHoverRepeat);
+    font-weight: map-get($fancySelect, fwDefault);
+    color: map-get($fancySelect, fcHover);
+}
+.ui-state-hover a,
+.ui-state-hover a:hover,
+.ui-state-hover a:link,
+.ui-state-hover a:visited {
+    color: map-get($fancySelect, fcHover);
+    text-decoration: none;
+}
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active {
+    border: 1px solid map-get($fancySelect, borderColorActive);
+    background: map-get($fancySelect, bgColorActive) map-get($fancySelect, bgImgUrlActive) map-get($fancySelect, bgActiveXPos) map-get($fancySelect, bgActiveYPos) map-get($fancySelect, bgActiveRepeat);
+    font-weight: map-get($fancySelect, fwDefault);
+    color: map-get($fancySelect, fcActive);
+}
+.ui-state-active a,
+.ui-state-active a:link,
+.ui-state-active a:visited {
+    color: map-get($fancySelect, fcActive);
+    text-decoration: none;
+}
+
+/* Interaction Cues
+----------------------------------*/
+.ui-state-highlight,
+.ui-widget-content .ui-state-highlight,
+.ui-widget-header .ui-state-highlight {
+    border: 1px solid map-get($fancySelect, borderColorHighlight);
+    background: map-get($fancySelect, bgColorHighlight) map-get($fancySelect, bgImgUrlHighlight) map-get($fancySelect, bgHighlightXPos) map-get($fancySelect, bgHighlightYPos) map-get($fancySelect, bgHighlightRepeat);
+    color: map-get($fancySelect, fcHighlight);
+}
+.ui-state-highlight a,
+.ui-widget-content .ui-state-highlight a,
+.ui-widget-header .ui-state-highlight a {
+    color: map-get($fancySelect, fcHighlight);
+}
+
+.ui-state-error,
+.ui-widget-content .ui-state-error,
+.ui-widget-header .ui-state-error,
+select[aria-invalid="true"] + span > .ui-state-default,
+.ui-selectmenu-menu-dropdown.not-valid > .ui-state-hover { // DS added .ui-selectmenu-menu-dropdown.not-valid
+    border: 1px solid map-get($fancySelect, borderColorError);
+    background: map-get($fancySelect, bgColorError) map-get($fancySelect, bgImgUrlError) map-get($fancySelect, bgErrorXPos) map-get($fancySelect, bgErrorYPos) map-get($fancySelect, bgErrorRepeat);
+    color: map-get($fancySelect, fcError)
+}
+
+// DS:
+// removed as when set to green, this causes the green to remain when the field loses focus
+// if set to grey, the field does not become green on focus
+//select[aria-invalid="false"] + span > .ui-state-default {
+    //border-color: map-get($fancySelect, borderColorValid);
+//}
+
+.ui-state-error a,
+.ui-widget-content .ui-state-error a,
+.ui-widget-header .ui-state-error a {
+    color: map-get($fancySelect, fcError)
+}
+.ui-state-error-text,
+.ui-widget-content .ui-state-error-text,
+.ui-widget-header .ui-state-error-text {
+    color: map-get($fancySelect, fcError)
+}
+.ui-priority-primary,
+.ui-widget-content .ui-priority-primary,
+.ui-widget-header .ui-priority-primary {
+    font-weight: bold;
+}
+.ui-priority-secondary,
+.ui-widget-content .ui-priority-secondary,
+.ui-widget-header .ui-priority-secondary {
+    opacity: .7;
+    filter:Alpha(Opacity=70);
+    font-weight: normal;
+}
+.ui-state-disabled,
+.ui-widget-content .ui-state-disabled,
+.ui-widget-header .ui-state-disabled {
+    opacity: .35;
+    filter:Alpha(Opacity=35);
+    background-image: none;
+}
+.ui-state-disabled .ui-icon {
+    filter:Alpha(Opacity=35); /* For IE8 - See #6059 */
+}
+
+/* Icons
+----------------------------------*/
+
+/* states and images */
+.ui-icon {
+    width: 16px;
+    height: 16px;
+    background-image: map-get($fancySelect, iconsContent);
+    background-position: 16px 16px;
+}
+.ui-widget-content .ui-icon {
+    background-image: map-get($fancySelect, iconsContent);
+}
+.ui-widget-header .ui-icon {
+    background-image: map-get($fancySelect, iconsHeader);
+}
+.ui-state-default .ui-icon {
+    background-image: map-get($fancySelect, iconsDefault);
+}
+.ui-state-hover .ui-icon,
+.ui-state-focus .ui-icon {
+    background-image: map-get($fancySelect, iconsHover);
+}
+.ui-state-active .ui-icon {
+    background-image: map-get($fancySelect, iconsActive);
+}
+.ui-state-highlight .ui-icon {
+    background-image: map-get($fancySelect, iconsHighlight);
+}
+.ui-state-error .ui-icon,
+.ui-state-error-text .ui-icon {
+    background-image: map-get($fancySelect, iconsError);
+}
+
+/* positioning */
+/* CT: these are excess to our needs so removed to reduce CSS payload
+.ui-icon-carat-1-n { background-position: 0 0; }
+.ui-icon-carat-1-ne { background-position: -16px 0; }
+.ui-icon-carat-1-e { background-position: -32px 0; }
+.ui-icon-carat-1-se { background-position: -48px 0; }
+.ui-icon-carat-1-s { background-position: -64px 0; }
+.ui-icon-carat-1-sw { background-position: -80px 0; }
+.ui-icon-carat-1-w { background-position: -96px 0; }
+.ui-icon-carat-1-nw { background-position: -112px 0; }
+.ui-icon-carat-2-n-s { background-position: -128px 0; }
+.ui-icon-carat-2-e-w { background-position: -144px 0; }
+.ui-icon-triangle-1-n { background-position: 0 -16px; }
+.ui-icon-triangle-1-ne { background-position: -16px -16px; }
+.ui-icon-triangle-1-e { background-position: -32px -16px; }
+.ui-icon-triangle-1-se { background-position: -48px -16px; }
+.ui-icon-triangle-1-s { background-position: -64px -16px; }
+.ui-icon-triangle-1-sw { background-position: -80px -16px; }
+.ui-icon-triangle-1-w { background-position: -96px -16px; }
+.ui-icon-triangle-1-nw { background-position: -112px -16px; }
+.ui-icon-triangle-2-n-s { background-position: -128px -16px; }
+.ui-icon-triangle-2-e-w { background-position: -144px -16px; }
+.ui-icon-arrow-1-n { background-position: 0 -32px; }
+.ui-icon-arrow-1-ne { background-position: -16px -32px; }
+.ui-icon-arrow-1-e { background-position: -32px -32px; }
+.ui-icon-arrow-1-se { background-position: -48px -32px; }
+.ui-icon-arrow-1-s { background-position: -64px -32px; }
+.ui-icon-arrow-1-sw { background-position: -80px -32px; }
+.ui-icon-arrow-1-w { background-position: -96px -32px; }
+.ui-icon-arrow-1-nw { background-position: -112px -32px; }
+.ui-icon-arrow-2-n-s { background-position: -128px -32px; }
+.ui-icon-arrow-2-ne-sw { background-position: -144px -32px; }
+.ui-icon-arrow-2-e-w { background-position: -160px -32px; }
+.ui-icon-arrow-2-se-nw { background-position: -176px -32px; }
+.ui-icon-arrowstop-1-n { background-position: -192px -32px; }
+.ui-icon-arrowstop-1-e { background-position: -208px -32px; }
+.ui-icon-arrowstop-1-s { background-position: -224px -32px; }
+.ui-icon-arrowstop-1-w { background-position: -240px -32px; }
+.ui-icon-arrowthick-1-n { background-position: 0 -48px; }
+.ui-icon-arrowthick-1-ne { background-position: -16px -48px; }
+.ui-icon-arrowthick-1-e { background-position: -32px -48px; }
+.ui-icon-arrowthick-1-se { background-position: -48px -48px; }
+.ui-icon-arrowthick-1-s { background-position: -64px -48px; }
+.ui-icon-arrowthick-1-sw { background-position: -80px -48px; }
+.ui-icon-arrowthick-1-w { background-position: -96px -48px; }
+.ui-icon-arrowthick-1-nw { background-position: -112px -48px; }
+.ui-icon-arrowthick-2-n-s { background-position: -128px -48px; }
+.ui-icon-arrowthick-2-ne-sw { background-position: -144px -48px; }
+.ui-icon-arrowthick-2-e-w { background-position: -160px -48px; }
+.ui-icon-arrowthick-2-se-nw { background-position: -176px -48px; }
+.ui-icon-arrowthickstop-1-n { background-position: -192px -48px; }
+.ui-icon-arrowthickstop-1-e { background-position: -208px -48px; }
+.ui-icon-arrowthickstop-1-s { background-position: -224px -48px; }
+.ui-icon-arrowthickstop-1-w { background-position: -240px -48px; }
+.ui-icon-arrowreturnthick-1-w { background-position: 0 -64px; }
+.ui-icon-arrowreturnthick-1-n { background-position: -16px -64px; }
+.ui-icon-arrowreturnthick-1-e { background-position: -32px -64px; }
+.ui-icon-arrowreturnthick-1-s { background-position: -48px -64px; }
+.ui-icon-arrowreturn-1-w { background-position: -64px -64px; }
+.ui-icon-arrowreturn-1-n { background-position: -80px -64px; }
+.ui-icon-arrowreturn-1-e { background-position: -96px -64px; }
+.ui-icon-arrowreturn-1-s { background-position: -112px -64px; }
+.ui-icon-arrowrefresh-1-w { background-position: -128px -64px; }
+.ui-icon-arrowrefresh-1-n { background-position: -144px -64px; }
+.ui-icon-arrowrefresh-1-e { background-position: -160px -64px; }
+.ui-icon-arrowrefresh-1-s { background-position: -176px -64px; }
+.ui-icon-arrow-4 { background-position: 0 -80px; }
+.ui-icon-arrow-4-diag { background-position: -16px -80px; }
+.ui-icon-extlink { background-position: -32px -80px; }
+.ui-icon-newwin { background-position: -48px -80px; }
+.ui-icon-refresh { background-position: -64px -80px; }
+.ui-icon-shuffle { background-position: -80px -80px; }
+.ui-icon-transfer-e-w { background-position: -96px -80px; }
+.ui-icon-transferthick-e-w { background-position: -112px -80px; }
+.ui-icon-folder-collapsed { background-position: 0 -96px; }
+.ui-icon-folder-open { background-position: -16px -96px; }
+.ui-icon-document { background-position: -32px -96px; }
+.ui-icon-document-b { background-position: -48px -96px; }
+.ui-icon-note { background-position: -64px -96px; }
+.ui-icon-mail-closed { background-position: -80px -96px; }
+.ui-icon-mail-open { background-position: -96px -96px; }
+.ui-icon-suitcase { background-position: -112px -96px; }
+.ui-icon-comment { background-position: -128px -96px; }
+.ui-icon-person { background-position: -144px -96px; }
+.ui-icon-print { background-position: -160px -96px; }
+.ui-icon-trash { background-position: -176px -96px; }
+.ui-icon-locked { background-position: -192px -96px; }
+.ui-icon-unlocked { background-position: -208px -96px; }
+.ui-icon-bookmark { background-position: -224px -96px; }
+.ui-icon-tag { background-position: -240px -96px; }
+.ui-icon-home { background-position: 0 -112px; }
+.ui-icon-flag { background-position: -16px -112px; }
+.ui-icon-calendar { background-position: -32px -112px; }
+.ui-icon-cart { background-position: -48px -112px; }
+.ui-icon-pencil { background-position: -64px -112px; }
+.ui-icon-clock { background-position: -80px -112px; }
+.ui-icon-disk { background-position: -96px -112px; }
+.ui-icon-calculator { background-position: -112px -112px; }
+.ui-icon-zoomin { background-position: -128px -112px; }
+.ui-icon-zoomout { background-position: -144px -112px; }
+.ui-icon-search { background-position: -160px -112px; }
+.ui-icon-wrench { background-position: -176px -112px; }
+.ui-icon-gear { background-position: -192px -112px; }
+.ui-icon-heart { background-position: -208px -112px; }
+.ui-icon-star { background-position: -224px -112px; }
+.ui-icon-link { background-position: -240px -112px; }
+.ui-icon-cancel { background-position: 0 -128px; }
+.ui-icon-plus { background-position: -16px -128px; }
+.ui-icon-plusthick { background-position: -32px -128px; }
+.ui-icon-minus { background-position: -48px -128px; }
+.ui-icon-minusthick { background-position: -64px -128px; }
+.ui-icon-close { background-position: -80px -128px; }
+.ui-icon-closethick { background-position: -96px -128px; }
+.ui-icon-key { background-position: -112px -128px; }
+.ui-icon-lightbulb { background-position: -128px -128px; }
+.ui-icon-scissors { background-position: -144px -128px; }
+.ui-icon-clipboard { background-position: -160px -128px; }
+.ui-icon-copy { background-position: -176px -128px; }
+.ui-icon-contact { background-position: -192px -128px; }
+.ui-icon-image { background-position: -208px -128px; }
+.ui-icon-video { background-position: -224px -128px; }
+.ui-icon-script { background-position: -240px -128px; }
+.ui-icon-alert { background-position: 0 -144px; }
+.ui-icon-info { background-position: -16px -144px; }
+.ui-icon-notice { background-position: -32px -144px; }
+.ui-icon-help { background-position: -48px -144px; }
+.ui-icon-check { background-position: -64px -144px; }
+.ui-icon-bullet { background-position: -80px -144px; }
+.ui-icon-radio-on { background-position: -96px -144px; }
+.ui-icon-radio-off { background-position: -112px -144px; }
+.ui-icon-pin-w { background-position: -128px -144px; }
+.ui-icon-pin-s { background-position: -144px -144px; }
+.ui-icon-play { background-position: 0 -160px; }
+.ui-icon-pause { background-position: -16px -160px; }
+.ui-icon-seek-next { background-position: -32px -160px; }
+.ui-icon-seek-prev { background-position: -48px -160px; }
+.ui-icon-seek-end { background-position: -64px -160px; }
+.ui-icon-seek-start { background-position: -80px -160px; }
+// ui-icon-seek-first is deprecated, use ui-icon-seek-start instead
+.ui-icon-seek-first { background-position: -80px -160px; }
+.ui-icon-stop { background-position: -96px -160px; }
+.ui-icon-eject { background-position: -112px -160px; }
+.ui-icon-volume-off { background-position: -128px -160px; }
+.ui-icon-volume-on { background-position: -144px -160px; }
+.ui-icon-power { background-position: 0 -176px; }
+.ui-icon-signal-diag { background-position: -16px -176px; }
+.ui-icon-signal { background-position: -32px -176px; }
+.ui-icon-battery-0 { background-position: -48px -176px; }
+.ui-icon-battery-1 { background-position: -64px -176px; }
+.ui-icon-battery-2 { background-position: -80px -176px; }
+.ui-icon-battery-3 { background-position: -96px -176px; }
+.ui-icon-circle-plus { background-position: 0 -192px; }
+.ui-icon-circle-minus { background-position: -16px -192px; }
+.ui-icon-circle-close { background-position: -32px -192px; }
+.ui-icon-circle-triangle-e { background-position: -48px -192px; }
+.ui-icon-circle-triangle-s { background-position: -64px -192px; }
+.ui-icon-circle-triangle-w { background-position: -80px -192px; }
+.ui-icon-circle-triangle-n { background-position: -96px -192px; }
+.ui-icon-circle-arrow-e { background-position: -112px -192px; }
+.ui-icon-circle-arrow-s { background-position: -128px -192px; }
+.ui-icon-circle-arrow-w { background-position: -144px -192px; }
+.ui-icon-circle-arrow-n { background-position: -160px -192px; }
+.ui-icon-circle-zoomin { background-position: -176px -192px; }
+.ui-icon-circle-zoomout { background-position: -192px -192px; }
+.ui-icon-circle-check { background-position: -208px -192px; }
+.ui-icon-circlesmall-plus { background-position: 0 -208px; }
+.ui-icon-circlesmall-minus { background-position: -16px -208px; }
+.ui-icon-circlesmall-close { background-position: -32px -208px; }
+.ui-icon-squaresmall-plus { background-position: -48px -208px; }
+.ui-icon-squaresmall-minus { background-position: -64px -208px; }
+.ui-icon-squaresmall-close { background-position: -80px -208px; }
+.ui-icon-grip-dotted-vertical { background-position: 0 -224px; }
+.ui-icon-grip-dotted-horizontal { background-position: -16px -224px; }
+.ui-icon-grip-solid-vertical { background-position: -32px -224px; }
+.ui-icon-grip-solid-horizontal { background-position: -48px -224px; }
+.ui-icon-gripsmall-diagonal-se { background-position: -64px -224px; }
+.ui-icon-grip-diagonal-se { background-position: -80px -224px; }
+*/
+
+
+/* Misc visuals
+----------------------------------*/
+
+/* Corner radius */
+.ui-corner-all,
+.ui-corner-top,
+.ui-corner-left,
+.ui-corner-tl {
+    -moz-border-radius-topleft: map-get($fancySelect, cornerRadius);
+    -webkit-border-top-left-radius: map-get($fancySelect, cornerRadius);
+    -khtml-border-top-left-radius: map-get($fancySelect, cornerRadius);
+    border-top-left-radius: map-get($fancySelect, cornerRadius);
+}
+.ui-corner-all,
+.ui-corner-top,
+.ui-corner-right,
+.ui-corner-tr {
+    -moz-border-radius-topright: map-get($fancySelect, cornerRadius);
+    -webkit-border-top-right-radius: map-get($fancySelect, cornerRadius);
+    -khtml-border-top-right-radius: map-get($fancySelect, cornerRadius);
+    border-top-right-radius: map-get($fancySelect, cornerRadius);
+}
+.ui-corner-all,
+.ui-corner-bottom,
+.ui-corner-left,
+.ui-corner-bl {
+    -moz-border-radius-bottomleft: map-get($fancySelect, cornerRadius);
+    -webkit-border-bottom-left-radius: map-get($fancySelect, cornerRadius);
+    -khtml-border-bottom-left-radius: map-get($fancySelect, cornerRadius);
+    border-bottom-left-radius: map-get($fancySelect, cornerRadius);
+}
+.ui-corner-all,
+.ui-corner-bottom,
+.ui-corner-right,
+.ui-corner-br {
+    -moz-border-radius-bottomright: map-get($fancySelect, cornerRadius);
+    -webkit-border-bottom-right-radius: map-get($fancySelect, cornerRadius);
+    -khtml-border-bottom-right-radius: map-get($fancySelect, cornerRadius);
+    border-bottom-right-radius: map-get($fancySelect, cornerRadius);
+}
+
+/* Overlays */
+
+.ui-widget-overlay {
+    background: map-get($fancySelect, bgColorOverlay) map-get($fancySelect, bgImgUrlOverlay) map-get($fancySelect, bgOverlayXPos) map-get($fancySelect, bgOverlayYPos) map-get($fancySelect, bgOverlayRepeat);
+    opacity: map-get($fancySelect, opacityOverlay);
+    filter: Alpha(Opacity=#{map-get($fancySelect, opacityOverlay)*10});
+}
+.ui-widget-shadow {
+    margin: map-get($fancySelect, offsetTopShadow) 0 0 map-get($fancySelect, offsetLeftShadow);
+    padding: map-get($fancySelect, thicknessShadow);
+    background: map-get($fancySelect, bgColorShadow) map-get($fancySelect, bgImgUrlShadow) map-get($fancySelect, bgShadowXPos) map-get($fancySelect, bgShadowYPos) map-get($fancySelect, bgShadowRepeat);
+    opacity: map-get($fancySelect, opacityShadow);
+    filter: Alpha(Opacity=#{map-get($fancySelect, opacityOverlay)*10});
+    -moz-border-radius: map-get($fancySelect, cornerRadiusShadow);
+    -khtml-border-radius: map-get($fancySelect, cornerRadiusShadow);
+    -webkit-border-radius: map-get($fancySelect, cornerRadiusShadow);
+    border-radius: map-get($fancySelect, cornerRadiusShadow);
+}
+
+/* Extra overrides */
+
+// extend faux select to width of container
+select + span {
+    width: 100%;
+}
+
+.ui-selectmenu,
+.ui-selectmenu-status {
+    min-height: map-get($fancySelect, height); // match height of textfield
+}
+
+.ui-selectmenu-status {
+    padding-top: 11px;
+}
+
+.ui-selectmenu-menu-dropdown {
+    border-top: 0; // prevent double border when dropdown is open
+}
+
+// down arrow
+.ui-icon-triangle-1-s {
+
+    background-image: none;
+
+    // overrides
+    &.ui-selectmenu-icon {
+        background-image: none;
+        text-indent: 0;
+        overflow: visible;
+        right: 10px ;
+        margin-top: -10px;
+    }
+
+    // before - vertical grey divider
+    &:before {
+        content: "";
+        border-left: 1px solid red;
+        height: 1000%; // height is cropped by ui-selectmenu
+        border-left: 1px solid #dfdfdf;
+        position: absolute;
+        top: -100%;
+        left: -5px;
+    }
+
+    // after - arrow icon
+    &:after {
+        content: "\2193";
+        speak: none;
+        font-family: map-get($fancySelect, font); // styles the arrow
+        @include rem(font-size, 18px);
+        line-height: normal;
+        color: map-get($fancySelect, arrowColor);
+        @include rem(padding-left, 6px);
+    }
+}

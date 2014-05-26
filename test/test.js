@@ -16,8 +16,8 @@ QUnit.begin( function() {
 
     testvars.container = '#qunit-fixture';
 
-    testvars.id = 'TOOD';
-    testvars.target = '#TODO';
+    //testvars.id = 'TOOD';
+    //testvars.target = '#TODO';
 
 });
 
@@ -29,6 +29,38 @@ Prerequisites
 
 module("Prerequisites");
 
+test("jQuery", function() {
+
+    "use strict";
+
+    equal(
+        typeof jQuery === 'undefined',
+        false,
+        'loaded'
+    );
+});
+
+test("jQuery UI", function() {
+
+    "use strict";
+
+    equal(
+        typeof $.ui === 'undefined',
+        false,
+        'loaded'
+    );
+});
+
+test("jQuery UI Selectmenu", function() {
+
+    "use strict";
+
+    equal(
+        typeof $.fn.selectmenu === 'undefined',
+        false,
+        'loaded'
+    );
+});
 
 /*
 -------------------------------------------------------------------
@@ -48,6 +80,7 @@ module("Set up", {
     }
 });
 
+/*
 test("TODO", function() {
     "use strict";
 
@@ -61,6 +94,7 @@ test("TODO", function() {
     );
 
 });
+*/
 
 /*
 -------------------------------------------------------------------
@@ -68,6 +102,7 @@ Destroy
 -------------------------------------------------------------------
 */
 
+/*
 module("Destroy", {
 
     setup: function() {
@@ -96,3 +131,4 @@ test("TESTNAME", function() {
         ''
     );
 });
+*/

@@ -3,29 +3,108 @@
   <head>
     <meta charset="utf-8">
     <title>ct-jquery-fancySelect.js</title>
+    <link href="../dist/ct-jquery-fancySelect.css" rel="stylesheet" />
     <style>
-      /* add .css styline here */
+      .m-form {
+        width: 400px;
+      }
+      .m-form ul,
+      .m-form li {
+        list-style: none;
+        padding-left: 0;
+        margin-left: 0;
+      }
+      .m-form li {
+        margin-bottom: 1.5em;
+      }
+      .is-focussed {
+        background-color: #fc0;
+      }
+      .not-valid,
+      .m-form--validation {
+        color: red;
+        border-color: red;
+      }
+      .m-form--validation {
+        font-size: 0.8em;
+      }
+      .is-required:after {
+        content: " (required)";
+      }
+      label {
+        display: block;
+        padding-bottom: 0.5em;
+      }
     </style>
   </head>
   <body>
     <h1>ct-jquery-fancySelect.js</h1>
-    <h2>Key</h2>
-    <ul>
-      <li>Red = false</li>
-      <li>Green = true</li>
-    </ul>
-    <h2>TestM</h2>
+    <h2>Test</h2>
     <div id="m-test">
-      <!-- add test here -->
+        <div class="m-form">
+            <form>
+                <div class="m-form--fieldset-wrapper">
+                    <fieldset>
+                        <legend class="hidden">Fieldset</legend>
+                        <div class="m-form--fieldset-liner">
+                        <ul>
+                            <!-- this item is not required, and has not been validated -->
+                            <li>
+                                <label for="m-form_formname--fieldname-select-1">Field name (this item is not required, and has not been validated)</label>
+                                <select name="fieldname" aria-required="false" id="m-form_formname--fieldname-select-1">
+                                    <option value="" selected="selected">Please select</option>
+                                    <option value="option1">Option 1</option>
+                                    <option value="option2">Option 2</option>
+                                    <option value="option3">Option 3</option>
+                                </select>
+                            </li>
+                            <!-- this item is required, and has not been validated -->
+                            <li>
+                                <label for="m-form_formname--fieldname-select-2">Field name (this item is required, and has not been validated)</label>
+                                <select name="fieldname" aria-required="true" id="m-form_formname--fieldname-select-2">
+                                    <option value="" selected="selected">Please select</option>
+                                    <option value="option1">Option 1</option>
+                                    <option value="option2">Option 2</option>
+                                    <option value="option3">Option 3</option>
+                                </select>
+                            </li>
+                            <!-- this item is required, and has been invalidated -->
+                            <li>
+                                <label for="m-form_formname--fieldname-select-3">Field name (this item is required, and has been invalidated)</label>
+                                <select name="fieldname" aria-required="true" aria-invalid="true" id="m-form_formname--fieldname-select-3" aria-describedby="m-form_formname--fieldname-select-3-validation">
+                                    <option value="" selected="selected">Please select</option>
+                                    <option value="option1">Option 1</option>
+                                    <option value="option2">Option 2</option>
+                                    <option value="option3">Option 3</option>
+                                </select>
+                                <p class="m-form--validation" id="m-form_formname--fieldname-select-3-validation">Uh-oh! Please enter a FieldDescription</p>
+                            </li>
+                            <!-- this item is required, and has been invalidated, and then validated -->
+                            <li>
+                                <label for="m-form_formname--fieldname-select-4">Field name (this item is required, and has been invalidated, and then validated)</label>
+                                <select name="fieldname" aria-required="true" aria-invalid="false" id="m-form_formname--fieldname-select-4">
+                                    <option value="" selected="selected">Please select</option>
+                                    <option value="option1">Option 1</option>
+                                    <option value="option2">Option 2</option>
+                                    <option value="option3">Option 3</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </fieldset>
+                </div>
+            </form>
+        </div>
     </div>
 
     <script src="../bower_components/jquery/jquery.min.js"></script>
+    <script src="../bower_components/jquery-ui/ui/jquery.ui.core.js"></script>
+    <script src="../bower_components/jquery-ui/ui/jquery.ui.widget.js"></script>
+    <script src="../bower_components/jquery-ui/ui/jquery.ui.position.js"></script>
+    <script src="../bower_components/jquery-ui/ui/jquery.ui.selectmenu.js"></script>
     <script src="../dev/ct-jquery-fancySelect.js"></script>
     <script>
         // Setup
-        $('#m-test').fancySelect({
-            // options
-        });
+        $('#m-test select').fancySelect();
     </script>
   </body>
 </html>
