@@ -3,39 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>ct-jquery-fancySelect.js</title>
+    <link href="../bower_components/jquery-ui/themes/base/jquery.ui.core.css" rel="stylesheet" />
+    <link href="../bower_components/jquery-ui/themes/base/jquery.ui.selectmenu.css" rel="stylesheet" />
     <link href="../dist/ct-jquery-fancySelect.css" rel="stylesheet" />
-    <style>
-      .m-form {
-        width: 400px;
-      }
-      .m-form ul,
-      .m-form li {
-        list-style: none;
-        padding-left: 0;
-        margin-left: 0;
-      }
-      .m-form li {
-        margin-bottom: 1.5em;
-      }
-      .is-focussed {
-        background-color: #fc0;
-      }
-      .not-valid,
-      .m-form--validation {
-        color: red;
-        border-color: red;
-      }
-      .m-form--validation {
-        font-size: 0.8em;
-      }
-      .is-required:after {
-        content: " (required)";
-      }
-      label {
-        display: block;
-        padding-bottom: 0.5em;
-      }
-    </style>
+    <link href="demo.css" rel="stylesheet" />
   </head>
   <body>
     <h1>ct-jquery-fancySelect.js</h1>
@@ -95,7 +66,6 @@
             </form>
         </div>
     </div>
-
     <script src="../bower_components/jquery/jquery.min.js"></script>
     <script src="../bower_components/jquery-ui/ui/jquery.ui.core.js"></script>
     <script src="../bower_components/jquery-ui/ui/jquery.ui.widget.js"></script>
@@ -103,8 +73,7 @@
     <script src="../bower_components/jquery-ui/ui/jquery.ui.selectmenu.js"></script>
     <script src="../dev/ct-jquery-fancySelect.js"></script>
     <script>
-        // Setup
-        $('#m-test select').fancySelect();
+        $('.m-form select').fancySelect();
     </script>
   </body>
 </html>

@@ -1,0 +1,30 @@
+.m-form {
+  width: 400px;
+}
+.m-form ul,
+.m-form li {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+.m-form li {
+  margin-bottom: 1.5em;
+}
+.is-focussed {
+  background-color: #fc0;
+}
+.not-valid,
+.m-form--validation {
+  color: red;
+  border-color: red;
+}
+.m-form--validation {
+  font-size: 0.8em;
+}
+.is-required:after {
+  content: " (required)";
+}
+label {
+  display: block;
+  padding-bottom: 0.5em;
+}
