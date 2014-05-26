@@ -17,44 +17,6 @@ Note: if you wish to customise where Bower puts installed components, you may ad
 
 ## Usage
 
-### Set up
-
-#### HTML
-
-The minimum required markup is:
-
-    <div class="FORM_CLASS">
-        <label for="FIELD_ID">Field name</label>
-        <select aria-required="TRUE_OR_FALSE" aria-invalid="TRUE_OR_FALSE_OR_OMIT" id="FIELD_ID">
-            <option value="" selected="selected">TEASER TEXT</option>
-            <option value="VALUE">OPTION NAME</option>
-        </select>
-    </div>
-
-You should of course add `form`, `fieldset` etc elements as necessary to create an accessible page.
-
-#### Styles
-
-Base styles are set in `dev/_jquery.ui.theme.scss`.
-
-Variables are contained within a Sass map to namespace them to this plugin.
-
-To override these you will need to copy the entire `$fancySelect: (...)` map into your own `_variables.scss` file (omitting the ` !default`), then change any values as you see fit.
-
-#### JavaScript
-
-    $('.FORM_CLASS select').fancySelect({
-        exclusions: [
-             $('html').hasClass('ios'),
-             $('html').hasClass('lt-ie9')
-        ],
-        parent_form_selector: '.FORM_CLASS',
-        focus_class: 'is-focussed',
-        invalid_class: 'not-valid',
-        required_class: 'is-required',
-        dropdown_max_height_px: (46 * 5 )
-    });
-
 ### Dependencies
 
 Ensure that the following assets are loaded by your page:
@@ -81,6 +43,40 @@ Import the uncompiled CSS:
 1. `jquery-ui/ui/jquery.ui.position.js` (dependency, via Bower)
 1. `jquery-ui/ui/jquery.ui.selectmenu.js` (dependency, via Bower)
 1. `dist/ct-jquery-fancySelect.min.js` (this plugin, bundled)
+
+### Set up
+
+#### HTML
+
+The minimum required markup is:
+
+    <div class="FORM_CLASS">
+        <label for="FIELD_ID">Field name</label>
+        <select aria-required="TRUE_OR_FALSE" aria-invalid="TRUE_OR_FALSE_OR_OMIT" id="FIELD_ID">
+            <option value="" selected="selected">TEASER TEXT</option>
+            <option value="VALUE">OPTION NAME</option>
+        </select>
+    </div>
+
+You should of course add `form`, `fieldset` etc elements as necessary to create an accessible page.
+
+#### Styles
+
+Styles may be customised by importing the uncompiled `.scss` and specifying custom values in  `dev/ct-jquery-fancySelect.scss`.
+
+#### JavaScript
+
+    $('.FORM_CLASS select').fancySelect({
+        exclusions: [
+             $('html').hasClass('ios'),
+             $('html').hasClass('lt-ie9')
+        ],
+        parent_form_selector: '.FORM_CLASS',
+        focus_class: 'is-focussed',
+        invalid_class: 'not-valid',
+        required_class: 'is-required',
+        dropdown_max_height_px: (46 * 5 )
+    });
 
 ## Demo
 
