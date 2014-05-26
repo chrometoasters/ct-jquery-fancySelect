@@ -61,9 +61,17 @@ Ensure that the following assets are loaded by your page:
 
 #### CSS
 
-1. `jquery-ui/themes/base/jquery.ui.core.css` (dependency, via Bower)
-1. `jquery-ui/themes/base/jquery.ui.selectmenu.css` (dependency, via Bower)
+##### Default
+
+Import the precompiled CSS:
+
 1. `dist/ct-jquery-fancySelect.css` (this plugin, bundled)
+
+##### Custom
+
+Import the uncompiled CSS:
+
+1. `dev/ct-jquery-fancySelect.scss` (this plugin, bundled)
 
 #### JavaScript
 
