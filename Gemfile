@@ -11,5 +11,5 @@ source 'https://rubygems.org'
 # sudo gem update sass
 # gem install compass --pre
 gem 'compass', '1.0.0.alpha.19'
-
 gem 'susy', '1.0.9'
+gem 'sass-css-importer'

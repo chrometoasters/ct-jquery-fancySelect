@@ -9,6 +9,7 @@
 # Require gems and Compass plugins
 require "compass"
 require "susy"
+require "sass-css-importer"
 
 # General
 output_style = :compressed
@@ -23,4 +24,5 @@ sass_dir = "dev"
 
 additional_import_paths = [
     project_path + "bower_components",
+    Sass::CssImporter::Importer.new(project_path + "bower_components")
 ]

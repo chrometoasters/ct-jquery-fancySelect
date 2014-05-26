@@ -5,5 +5,53 @@
 // Grid System, for rem
 @import "susy/sass/susy";
 
+// jQuery UI styles
+// Using https://github.com/chriseppstein/sass-css-importer to import CSS files
+@import "CSS:jquery.ui.core.css";
+@import "CSS:jquery.ui.selectmenu.css";
+
+// To override the $fancySelect map, uncomment and customise this block:
+/*
+$fancySelect: (
+
+    // added:
+    selectHeight: 50px,
+    arrowFont: #{Arial, "Helvetica Neue", Helvetica, sans-serif},
+    arrowColor: #141414,
+    arrowFontSizePx: 18,
+    arrowDividerColor: #dfdfdf,
+
+    ffDefault: #{Arial, "Helvetica Neue", Helvetica, sans-serif},
+    fsDefault: 1.1em,
+    fwDefault: normal,
+    fcActive: white !important,
+    fcContent: white !important,
+    fcDefault: white !important,
+    fcError: white !important,
+    fcHeader: white !important,
+    fcHighlight: white !important,
+    fcHover: white !important,
+
+    bgColorActive: blue,
+    bgColorContent: blue,
+    //bgColorDefault: blue,
+    bgColorError: blue,
+    bgColorHeader: blue,
+    bgColorHighlight: blue,
+    bgColorHover: blue,
+
+    borderColorActive: green,
+    borderColorContent: #666,
+    borderColorError: red,
+    borderColorValid: green, // note: this style remains even when focus is removed from the field (see note below)
+    borderColorHeader: #666,
+    borderColorHighlight: #666,
+    borderColorHover: green, // note: there is no borderColorErrorHover
+    borderColorDefault: #666,
+
+    cornerRadius: 0
+);
+*/
+
 // our theme styles ($vendor_path not reqd as all image references removed)
 @import "jquery.ui.theme";
