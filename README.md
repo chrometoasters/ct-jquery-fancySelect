@@ -1,2 +1,2 @@
-ct-jquery-fancySelect
+ct-jquery-forms-fancySelect
 =====================
