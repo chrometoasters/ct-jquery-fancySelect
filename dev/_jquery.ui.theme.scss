@@ -14,12 +14,15 @@
 
 /* SCSS vars */
 
-%ffDefault {
-    @extend %fancySelectFont;
-}
-
 // map-get($fancySelect, VARIABLE_NAME)
 $fancySelect: (
+
+    // custom
+    height: 50px,
+    arrowFont: #{Arial, "Helvetica Neue", Helvetica, sans-serif},
+    arrowColor: #141414,
+
+    ffDefault: #{Arial, "Helvetica Neue", Helvetica, sans-serif},
     fsDefault: 1.1em,
     fwDefault: normal,
     fcActive: black !important,
@@ -76,10 +79,11 @@ $fancySelect: (
     bgContentRepeat: repeat-x,
     bgDefaultRepeat: repeat-x,
     bgErrorRepeat: repeat-x,
-    gHeaderRepeat: repeat-x,
+    bgHeaderRepeat: repeat-x,
     bgHighlightRepeat: repeat-x,
-    bgHoverRepeat: repeat-x,
+    bgHoverRepeat: repeat-x
 
+    /*
     iconsActive: url(#{$vendor_path}/jquery-ui/themes/base/images/ui-icons_454545_256x240.png),
     iconsContent: url(#{$vendor_path}/jquery-ui/themes/base/images/ui-icons_222222_256x240.png),
     iconsDefault: url(#{$vendor_path}/jquery-ui/themes/base/images/ui-icons_888888_256x240.png),
@@ -105,18 +109,14 @@ $fancySelect: (
     bgShadowRepeat: repeat-x,
     opacityShadow: 0.3,
     cornerRadiusShadow: 8px,
-
-    // custom
-    height: 50px,
-    font: "Arial",
-    arrowColor: #141414
+    */
 
 ) !default;
 
 /* Component containers
 ----------------------------------*/
 .ui-widget {
-    @extend %ffDefault;
+    font-family: map-get($fancySelect, ffDefault);
     font-size: map-get($fancySelect, fsDefault);
 }
 .ui-widget .ui-widget {
@@ -126,7 +126,7 @@ $fancySelect: (
 .ui-widget select,
 .ui-widget textarea,
 .ui-widget button {
-    @extend %ffDefault;
+    font-family: map-get($fancySelect, ffDefault);
     font-size: 1em;
 }
 .ui-widget-content {
@@ -266,9 +266,10 @@ select[aria-invalid="true"] + span > .ui-state-default,
 .ui-icon {
     width: 16px;
     height: 16px;
-    background-image: map-get($fancySelect, iconsContent);
-    background-position: 16px 16px;
+    //background-image: map-get($fancySelect, iconsContent);
+    //background-position: 16px 16px;
 }
+/*
 .ui-widget-content .ui-icon {
     background-image: map-get($fancySelect, iconsContent);
 }
@@ -292,6 +293,7 @@ select[aria-invalid="true"] + span > .ui-state-default,
 .ui-state-error-text .ui-icon {
     background-image: map-get($fancySelect, iconsError);
 }
+*/
 
 /* positioning */
 /* CT: these are excess to our needs so removed to reduce CSS payload
@@ -514,8 +516,7 @@ select[aria-invalid="true"] + span > .ui-state-default,
     border-bottom-right-radius: map-get($fancySelect, cornerRadius);
 }
 
-/* Overlays */
-
+/* Overlays
 .ui-widget-overlay {
     background: map-get($fancySelect, bgColorOverlay) map-get($fancySelect, bgImgUrlOverlay) map-get($fancySelect, bgOverlayXPos) map-get($fancySelect, bgOverlayYPos) map-get($fancySelect, bgOverlayRepeat);
     opacity: map-get($fancySelect, opacityOverlay);
@@ -532,6 +533,7 @@ select[aria-invalid="true"] + span > .ui-state-default,
     -webkit-border-radius: map-get($fancySelect, cornerRadiusShadow);
     border-radius: map-get($fancySelect, cornerRadiusShadow);
 }
+*/
 
 /* Extra overrides */
 
@@ -582,7 +584,7 @@ select + span {
     &:after {
         content: "\2193";
         speak: none;
-        font-family: map-get($fancySelect, font); // styles the arrow
+        font-family: map-get($fancySelect, arrowFont); // styles the arrow
         @include rem(font-size, 18px);
         line-height: normal;
         color: map-get($fancySelect, arrowColor);

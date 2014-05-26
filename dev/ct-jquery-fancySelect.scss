@@ -5,12 +5,5 @@
 // Grid System, for rem
 @import "susy/sass/susy";
 
-// our theme styles
-
-$vendor_path: '../bower_components';
-
-%fancySelectFont {
-    font-family: Arial;
-}
-
+// our theme styles ($vendor_path not reqd as all image references removed)
 @import "jquery.ui.theme";
