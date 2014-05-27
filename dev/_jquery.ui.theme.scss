@@ -17,13 +17,13 @@
 // map-get($fancySelect, VARIABLE_NAME)
 $fancySelect: (
     selectHeight: 50px,
-    arrowFont: #{Arial, "Helvetica Neue", Helvetica, sans-serif},
     arrowColor: #141414,
-    arrowFontSizePx: 18,
+    arrowFontSizePx: 15px,
     arrowDividerColor: #dfdfdf,
+    arrowIconFA: $fa-var-chevron-down,
 
     ffDefault: #{Arial, "Helvetica Neue", Helvetica, sans-serif},
-    fsDefault: 1.1em,
+    fsDefault: 18px,
     fwDefault: normal,
     fcActive: black !important,
     fcContent: black !important,
@@ -58,7 +58,7 @@ $fancySelect: (
 ----------------------------------*/
 .ui-widget {
     font-family: map-get($fancySelect, ffDefault);
-    font-size: map-get($fancySelect, fsDefault);
+    @include rem( font-size, map-get($fancySelect, fsDefault) );
 }
 .ui-widget .ui-widget {
     font-size: 1em;
@@ -205,7 +205,7 @@ select[aria-invalid="true"] + span > .ui-state-default,
 
 /* states and images */
 .ui-icon {
-    width: 16px;
+    width: 32px;
     height: 16px;
 }
 
@@ -268,9 +268,10 @@ select + span {
     &.ui-selectmenu-icon {
         background-image: none;
         text-indent: 0;
+        text-align: center;
         overflow: visible;
-        right: 10px ;
-        margin-top: -10px;
+        right: 0;
+        margin-top: -11px;
     }
 
     // before - vertical grey divider
@@ -280,17 +281,16 @@ select + span {
         border-left: 1px solid map-get($fancySelect, arrowDividerColor);
         position: absolute;
         top: -100%;
-        left: -5px;
+        left: 0;
     }
 
     // after - arrow icon
     &:after {
-        content: "\2193";
+        @include icon( map-get($fancySelect, arrowIconFA) );
         speak: none;
-        font-family: map-get($fancySelect, arrowFont); // styles the arrow
         @include rem(font-size, map-get($fancySelect, arrowFontSizePx) );
         line-height: normal;
         color: map-get($fancySelect, arrowColor);
-        @include rem(padding-left, 6px);
+        text-align: center;
     }
 }

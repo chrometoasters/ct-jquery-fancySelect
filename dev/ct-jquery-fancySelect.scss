@@ -5,10 +5,15 @@
 // Grid System, for rem
 @import "susy/sass/susy";
 
+// Font Awesome
+$fa-font-path: "../bower_components/Font-Awesome/fonts"; // Font-Awesome/scss/_variables.less, was "../font" (path is relative to css folder)
+@import "Font-Awesome/scss/font-awesome";
+@import "ct-Font-Awesome-mixins/dist/mixins";
+
 // jQuery UI styles
-// Using https://github.com/chriseppstein/sass-css-importer to import CSS files
-@import "CSS:jquery-ui/ui/jquery.ui.core.css";
-@import "CSS:jquery-ui/ui/jquery.ui.selectmenu.css";
+// Using https://github.com/chriseppstein/sass-css-importer with the .css extension omitted
+@import "CSS:jquery-ui/themes/base/jquery.ui.core";
+@import "CSS:jquery-ui/themes/base/jquery.ui.selectmenu";
 
 // Our theme styles
 @import "jquery.ui.theme";
