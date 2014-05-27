@@ -7,8 +7,8 @@
 
 // jQuery UI styles
 // Using https://github.com/chriseppstein/sass-css-importer to import CSS files
-@import "CSS:jquery.ui.core.css";
-@import "CSS:jquery.ui.selectmenu.css";
+@import "CSS:jquery-ui/ui/jquery.ui.core.css";
+@import "CSS:jquery-ui/ui/jquery.ui.selectmenu.css";
 
 // To override the $fancySelect map, uncomment and customise this block:
 /*
