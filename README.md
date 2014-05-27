@@ -99,7 +99,7 @@ Styles may be customised by importing the uncompiled `.scss`, and preceding this
 
         cornerRadius: 0
 
-    ) !default;
+    );
     @import "ct-jquery-fancySelect/dev/ct-jquery-fancySelect";
 
 Note that a `$vendor_path` does not need to be set as all image references have been removed.
