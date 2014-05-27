@@ -6,7 +6,7 @@
 @import "susy/sass/susy";
 
 // Font Awesome
-$fa-font-path: "../bower_components/Font-Awesome/fonts"; // Font-Awesome/scss/_variables.less, was "../font" (path is relative to css folder)
+$fa-font-path: "../bower_components/Font-Awesome/fonts" !default; // Font-Awesome/scss/_variables.less, was "../font" (path is relative to css folder)
 @import "Font-Awesome/scss/font-awesome";
 @import "ct-Font-Awesome-mixins/dist/mixins";
 
