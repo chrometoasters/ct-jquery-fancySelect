@@ -31,6 +31,8 @@ Or the uncompiled SCSS:
 
 1. `dev/ct-jquery-fancySelect.scss` (this plugin, bundled)
 
+Note that the latter has various dependencies - see `bower.json`, `config.rb` and `/Gemfile`.
+
 #### JavaScript
 
 1. `jquery/jquery.min.js` (dependency, via Bower)
