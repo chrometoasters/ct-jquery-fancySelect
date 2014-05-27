@@ -62,45 +62,46 @@ You should of course add `form`, `fieldset` etc elements as necessary to create 
 
 Styles may be customised by importing the uncompiled `.scss`, and preceding this import with the customised map:
 
-        $fancySelect: (
-            selectHeight: 50px,
-            arrowFont: #{Arial, "Helvetica Neue", Helvetica, sans-serif},
-            arrowColor: #141414,
-            arrowFontSizePx: 18,
-            arrowDividerColor: #dfdfdf,
-        
-            ffDefault: #{Arial, "Helvetica Neue", Helvetica, sans-serif},
-            fsDefault: 1.1em,
-            fwDefault: normal,
-            fcActive: white !important,
-            fcContent: white !important,
-            fcDefault: white !important,
-            fcError: white !important,
-            fcHeader: white !important,
-            fcHighlight: white !important,
-            fcHover: white !important,
-        
-            bgColorActive: blue,
-            bgColorContent: blue,
-            //bgColorDefault: blue,
-            bgColorError: blue,
-            bgColorHeader: blue,
-            bgColorHighlight: blue,
-            bgColorHover: blue,
-        
-            borderColorActive: green,
-            borderColorContent: #666,
-            borderColorError: red,
-            borderColorValid: green, // note: this style remains even when focus is removed from the field (see note below)
-            borderColorHeader: #666,
-            borderColorHighlight: #666,
-            borderColorHover: green, // note: there is no borderColorErrorHover
-            borderColorDefault: #666,
-        
-            cornerRadius: 0
-        );
-        @import "ct-jquery-fancySelect/dev/ct-jquery-fancySelect";
-        
+    $fancySelect: (
+        selectHeight: 50px,
+        arrowColor: #141414,
+        arrowFontSizePx: 15px,
+        arrowDividerColor: #dfdfdf,
+        arrowIconFA: $fa-var-chevron-down,
+
+        ffDefault: #{Arial, "Helvetica Neue", Helvetica, sans-serif},
+        fsDefault: 18px,
+        fwDefault: normal,
+        fcActive: black !important,
+        fcContent: black !important,
+        fcDefault: black !important,
+        fcError: black !important,
+        fcHeader: black !important,
+        fcHighlight: black !important,
+        fcHover: black !important,
+
+        bgColorActive: white,
+        bgColorContent: white,
+        //bgColorDefault: white,
+        bgColorError: white,
+        bgColorHeader: white,
+        bgColorHighlight: white,
+        bgColorHover: white,
+
+        borderColorActive: green,
+        borderColorContent: #666,
+        borderColorError: red,
+        borderColorValid: green, // note: this style remains even when focus is removed from the field (see note below)
+        borderColorHeader: #666,
+        borderColorHighlight: #666,
+        borderColorHover: green, // note: there is no borderColorErrorHover
+        borderColorDefault: #666,
+
+        cornerRadius: 0
+
+    ) !default;
+    @import "ct-jquery-fancySelect/dev/ct-jquery-fancySelect";
+
 Note that a `$vendor_path` does not need to be set as all image references have been removed.
 
 #### JavaScript
