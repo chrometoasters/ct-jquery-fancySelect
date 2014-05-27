@@ -130,3 +130,4 @@ As this is the first release of this plugin there are some limitations:
 1. No support for different markup or Mustache templating
 1. Customising the styles requires replacing an entire map (vs [replacing a value](http://erskinedesign.com/blog/setting-typographic-scale-with-sass-maps/))
 1. Need to merge in other enhancements from older projects
+1. Select sizing is a mixture of pixels, ems and rems
