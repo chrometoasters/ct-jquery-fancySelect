@@ -25,13 +25,13 @@
   },
   "dependencies": {
     "jquery": "1.10.1",
-    "jquery-ui": "https://github.com/fnagel/jquery-ui.git#selectmenu_v1.4.0"
+    "jquery-ui": "https://github.com/fnagel/jquery-ui.git#selectmenu_v1.4.0",
+    "susy": "https://github.com/ericam/susy.git#v1.0.9",
+    "sass-css-importer": "https://github.com/chriseppstein/sass-css-importer.git"
   },
   "devDependencies": {
     "ct-jquery-plugin": "https://github.com/chrometoasters/ct-jquery-plugin.git#v1.1.2",
     "qunit": "https://github.com/components/qunit.git#v1.11.0",
-    "susy": "https://github.com/ericam/susy.git#v1.0.9",
-    "sass-css-importer": "https://github.com/chriseppstein/sass-css-importer.git"
   },
   "private": true
 }
