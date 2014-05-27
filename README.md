@@ -98,7 +98,6 @@ Styles may be customised by importing the uncompiled `.scss`, and preceding this
         borderColorDefault: #666,
 
         cornerRadius: 0
-
     );
     @import "ct-jquery-fancySelect/dev/ct-jquery-fancySelect";
 
