@@ -1,16 +1,9 @@
 {
   "name": "ct-jquery-fancySelect",
   "description": "A wrapper for https://github.com/fnagel/jquery-ui/tree/selectmenu.",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "main": "dist",
   "license": "All rights reserved",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
   "keywords": [],
   "authors": [
     {
@@ -35,5 +28,15 @@
     "ct-jquery-plugin": "https://github.com/chrometoasters/ct-jquery-plugin.git#v1.1.2",
     "qunit": "https://github.com/components/qunit.git#v1.11.0"
   },
-  "private": true
+  "private": true,
+  "ignore": [
+    "bower_components/",
+    "demos/",
+    "dev/",
+    "test/",
+    ".gitignore"
+    "config.rb",
+    "Gemfile",
+    "Gemfile.lock"
+  ]
 }
