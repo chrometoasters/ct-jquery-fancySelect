@@ -34,7 +34,7 @@
     "demos/",
     "dev/",
     "test/",
-    ".gitignore"
+    ".gitignore",
     "config.rb",
     "Gemfile",
     "Gemfile.lock"
