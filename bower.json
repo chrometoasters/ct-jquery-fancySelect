@@ -1,7 +1,7 @@
 {
   "name": "ct-jquery-fancySelect",
   "description": "A wrapper for https://github.com/fnagel/jquery-ui/tree/selectmenu.",
-  "version": "1.6.3",
+  "version": "1.6.4",
   "main": "dist",
   "license": "All rights reserved",
   "keywords": [],
