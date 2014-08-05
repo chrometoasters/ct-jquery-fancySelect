@@ -22,7 +22,7 @@
     "susy": "https://github.com/ericam/susy.git#v1.0.9",
     "sass-css-importer": "https://github.com/chriseppstein/sass-css-importer.git",
     "Font-Awesome": "https://github.com/FortAwesome/Font-Awesome.git#v4.0.3",
-    "ct-Font-Awesome-mixins": "https://github.com/chrometoasters/ct-Font-Awesome-mixins.git#v1.0.1"
+    "ct-Font-Awesome-mixins": "https://github.com/chrometoasters/ct-Font-Awesome-mixins.git#v1.0.2"
   },
   "devDependencies": {
     "ct-jquery-plugin": "https://github.com/chrometoasters/ct-jquery-plugin.git#v1.1.2",
