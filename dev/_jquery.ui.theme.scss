@@ -288,7 +288,7 @@ select + span {
     &:after {
         @include icon( map-get($fancySelect, arrowIconFA) );
         speak: none;
-        @include rem(font-size, map-get($fancySelect, arrowFontSizePx) );
+        @include rem(font-size, map-get($fancySelect, arrowFontSizePx) !important ); // ! overrides 3rd party icon (ct-jquery-fancySelect/issues/2)
         line-height: normal;
         color: map-get($fancySelect, arrowColor);
         text-align: center;
