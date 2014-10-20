@@ -12,7 +12,7 @@ require "susy"
 require "sass-css-importer"
 
 # General
-output_style = :compressed
+output_style = :expanded
 project_path = File.dirname(__FILE__) + "/"
 
 # Sass Paths
