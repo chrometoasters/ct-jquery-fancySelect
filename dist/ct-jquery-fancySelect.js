@@ -85,13 +85,18 @@
                 var settings = $.extend({}, defaults, options);
 
                 // Exclusions
+                var exclude = false;
 
                 // check that none of the exclusion conditions are met
                 $.each( settings.exclusions, function(i, exclusion) {
                     if ( exclusion ) {
-                        return;
+                        exclude = true; // 'return' failed to exit the script
                     }
                 });
+
+                if ( exclude ) {
+                    return;
+                }
 
                 // Requirements
                 //if ( settings.PROPERTY === '' ) {
