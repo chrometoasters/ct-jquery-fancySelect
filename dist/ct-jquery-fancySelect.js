@@ -222,8 +222,8 @@
 
                             // this didn't always fire for some reason:
 
-                            if ( typeof OB_UI.resize_iframe !== 'undefined' ) {
-                                OB_UI.resize_iframe( resize_addition );
+                            if ( typeof CT_UI.resize_iframe !== 'undefined' ) {
+                                CT_UI.resize_iframe( resize_addition );
                                 // this action sometimes closes the select, if this happens then reopen it
                                 if ( ! $fancy_select_dropdown.hasClass('ui-selectmenu-open') ) {
                                     $fancy_select.click();
@@ -244,8 +244,8 @@
                             $fancy_select_dropdown.fancySelect('_valid', $parent_form);
                         }
 
-                        //if ( typeof OB_UI.resize_iframe !== 'undefined' ) {
-                        //    OB_UI.resize_iframe();
+                        //if ( typeof CT_UI.resize_iframe !== 'undefined' ) {
+                        //    CT_UI.resize_iframe();
                         //}
                     }
                 });
@@ -405,6 +405,12 @@
                     $(data.parent_form_selector).removeData('fancySelect');
 
                     $this.removeData('fancySelect');
+
+                    // remove the jQuery UI selectmenu
+                    $this.selectmenu('destroy');
+
+                    // no, REALLY remove it
+                    $this.next('span').remove();
 
                     //$parent_form -- use for data
                 });
