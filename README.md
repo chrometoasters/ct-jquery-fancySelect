@@ -7,7 +7,7 @@ __Please note: this plugin is optimised for internal Chrometoaster use. YMMV.__
 ## Installation
 
 1. In Terminal: `cd /PATH/TO/PROJECT-THEME-FOLDER`
-1. `bower install https://github.com/chrometoasters/ct-jquery-fancySelect.git#v1.6.1 --save`
+1. `bower install https://github.com/chrometoasters/ct-jquery-fancySelect.git#~v2 --save`
 
 Note: if you wish to customise where Bower puts installed components, you may add a `.bowerrc` file into this folder:
 
@@ -110,10 +110,6 @@ Note that a `$vendor_path` does not need to be set as all image references have 
              $('html').hasClass('ios'),
              $('html').hasClass('lt-ie9')
         ],
-        parent_form_selector: '.FORM_CLASS',
-        focus_class: 'is-focussed',
-        invalid_class: 'not-valid',
-        required_class: 'is-required',
         dropdown_max_height_px: (46 * 5 )
     });
 
@@ -126,7 +122,7 @@ Please refer to `demos/ct-jquery-fancySelect.html`.
 As this is the first release of this plugin there are some limitations:
 
 1. Test suite needs more tests
-1. No support for different markup or Mustache templating
+1. No support for Mustache templating
 1. Customising the styles requires replacing an entire map (vs [replacing a value](http://erskinedesign.com/blog/setting-typographic-scale-with-sass-maps/))
 1. Need to merge in other enhancements from older projects
 1. Select sizing is a mixture of pixels, ems and rems
