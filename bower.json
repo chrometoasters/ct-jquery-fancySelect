@@ -36,6 +36,10 @@
     "config.rb",
     "Gemfile",
     "Gemfile.lock",
-    "documentation"
+    "documentation",
+    "conf.json",
+    "generate-jsdocs.command",
+    "node_modules",
+    "npm-debug.log"
   ]
 }
