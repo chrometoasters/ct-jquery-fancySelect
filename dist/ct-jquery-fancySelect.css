@@ -2438,42 +2438,56 @@ ul.ui-selectmenu-menu-popup {
 
 /* line 73, ../dev/_jquery.ui.theme.scss */
 .ui-widget-content {
-  border: 1px solid #666666;
   background: white;
   color: black !important;
+  border: 1px solid #666666;
 }
 
-/* line 78, ../dev/_jquery.ui.theme.scss */
+/* line 79, ../dev/_jquery.ui.theme.scss */
+.ui-selectmenu-menu li {
+  border-style: solid;
+}
+
+/* line 84, ../dev/_jquery.ui.theme.scss */
+.ui-selectmenu-menu > ul > li:first-child {
+  border-top-color: transparent !important;
+}
+/* line 88, ../dev/_jquery.ui.theme.scss */
+.ui-selectmenu-menu > ul > li:last-child {
+  border-bottom-color: transparent !important;
+}
+
+/* line 93, ../dev/_jquery.ui.theme.scss */
 .ui-widget-content a {
   color: black !important;
 }
 
-/* line 81, ../dev/_jquery.ui.theme.scss */
+/* line 96, ../dev/_jquery.ui.theme.scss */
 .ui-widget-header {
-  border: 1px solid #666666;
   background: white;
   color: black !important;
+  border: 1px solid #666666;
   font-weight: bold;
 }
 
-/* line 87, ../dev/_jquery.ui.theme.scss */
+/* line 102, ../dev/_jquery.ui.theme.scss */
 .ui-widget-header a {
   color: black !important;
 }
 
 /* Interaction states
 ----------------------------------*/
-/* line 91, ../dev/_jquery.ui.theme.scss */
+/* line 106, ../dev/_jquery.ui.theme.scss */
 .ui-state-default,
 .ui-widget-content .ui-state-default,
 .ui-widget-header .ui-state-default {
-  border: 1px solid #666666;
   background: white;
-  font-weight: normal;
   color: black !important;
+  border: 1px solid #666666;
+  font-weight: normal;
 }
 
-/* line 99, ../dev/_jquery.ui.theme.scss */
+/* line 114, ../dev/_jquery.ui.theme.scss */
 .ui-state-default a,
 .ui-state-default a:link,
 .ui-state-default a:visited {
@@ -2481,20 +2495,21 @@ ul.ui-selectmenu-menu-popup {
   text-decoration: none;
 }
 
-/* line 105, ../dev/_jquery.ui.theme.scss */
+/* line 120, ../dev/_jquery.ui.theme.scss */
 .ui-state-hover,
 .ui-widget-content .ui-state-hover,
 .ui-widget-header .ui-state-hover,
 .ui-state-focus,
 .ui-widget-content .ui-state-focus,
-.ui-widget-header .ui-state-focus {
-  border: 1px solid green;
+.ui-widget-header .ui-state-focus,
+.ui-widget-content.ui-selectmenu-menu-dropdown {
   background: white;
-  font-weight: normal;
   color: black !important;
+  border-color: green;
+  font-weight: normal;
 }
 
-/* line 116, ../dev/_jquery.ui.theme.scss */
+/* line 133, ../dev/_jquery.ui.theme.scss */
 .ui-state-hover a,
 .ui-state-hover a:hover,
 .ui-state-hover a:link,
@@ -2503,17 +2518,17 @@ ul.ui-selectmenu-menu-popup {
   text-decoration: none;
 }
 
-/* line 123, ../dev/_jquery.ui.theme.scss */
+/* line 140, ../dev/_jquery.ui.theme.scss */
 .ui-state-active,
 .ui-widget-content .ui-state-active,
 .ui-widget-header .ui-state-active {
-  border: 1px solid green;
   background: white;
-  font-weight: normal;
   color: black !important;
+  border-color: green;
+  font-weight: normal;
 }
 
-/* line 131, ../dev/_jquery.ui.theme.scss */
+/* line 148, ../dev/_jquery.ui.theme.scss */
 .ui-state-active a,
 .ui-state-active a:link,
 .ui-state-active a:visited {
@@ -2523,55 +2538,67 @@ ul.ui-selectmenu-menu-popup {
 
 /* Interaction Cues
 ----------------------------------*/
-/* line 140, ../dev/_jquery.ui.theme.scss */
+/* line 157, ../dev/_jquery.ui.theme.scss */
 .ui-state-highlight,
 .ui-widget-content .ui-state-highlight,
 .ui-widget-header .ui-state-highlight {
-  border: 1px solid #666666;
   background: white;
   color: black !important;
+  border-color: #666666;
 }
 
-/* line 147, ../dev/_jquery.ui.theme.scss */
+/* line 164, ../dev/_jquery.ui.theme.scss */
 .ui-state-highlight a,
 .ui-widget-content .ui-state-highlight a,
 .ui-widget-header .ui-state-highlight a {
   color: black !important;
 }
 
-/* line 153, ../dev/_jquery.ui.theme.scss */
+/* line 170, ../dev/_jquery.ui.theme.scss */
 .ui-state-error,
 .ui-widget-content .ui-state-error,
 .ui-widget-header .ui-state-error,
 select[aria-invalid="true"] + span > .ui-state-default,
+.ui-widget-content.ui-selectmenu-menu-dropdown.not-valid,
 .ui-selectmenu-menu-dropdown.not-valid > .ui-state-hover {
-  border: 1px solid red;
   background: white;
   color: black !important;
+  border-color: red;
 }
 
-/* line 170, ../dev/_jquery.ui.theme.scss */
+/* line 183, ../dev/_jquery.ui.theme.scss */
+.ui-widget-content.ui-selectmenu-menu-dropdown.not-valid > .ui-state-hover:first-child,
+.ui-widget-content.ui-selectmenu-menu-dropdown.not-valid > .ui-state-focus:first-child {
+  border-top-color: transparent !important;
+}
+/* line 187, ../dev/_jquery.ui.theme.scss */
+.ui-widget-content.ui-selectmenu-menu-dropdown.not-valid > .ui-state-hover:last-child,
+.ui-widget-content.ui-selectmenu-menu-dropdown.not-valid > .ui-state-focus:last-child {
+  border-bottom-color: transparent !important;
+}
+
+/* line 199, ../dev/_jquery.ui.theme.scss */
 .ui-state-error a,
 .ui-widget-content .ui-state-error a,
 .ui-widget-header .ui-state-error a {
   color: black !important;
 }
 
-/* line 175, ../dev/_jquery.ui.theme.scss */
+/* line 204, ../dev/_jquery.ui.theme.scss */
 .ui-state-error-text,
 .ui-widget-content .ui-state-error-text,
 .ui-widget-header .ui-state-error-text {
   color: black !important;
 }
 
-/* line 180, ../dev/_jquery.ui.theme.scss */
+/* line 209, ../dev/_jquery.ui.theme.scss */
 .ui-priority-primary,
 .ui-widget-content .ui-priority-primary,
 .ui-widget-header .ui-priority-primary {
   font-weight: bold;
 }
 
-/* line 185, ../dev/_jquery.ui.theme.scss */
+/* line 214, ../dev/_jquery.ui.theme.scss */
 .ui-priority-secondary,
 .ui-widget-content .ui-priority-secondary,
 .ui-widget-header .ui-priority-secondary {
@@ -2580,7 +2607,7 @@ select[aria-invalid="true"] + span > .ui-state-default,
   font-weight: normal;
 }
 
-/* line 192, ../dev/_jquery.ui.theme.scss */
+/* line 221, ../dev/_jquery.ui.theme.scss */
 .ui-state-disabled,
 .ui-widget-content .ui-state-disabled,
 .ui-widget-header .ui-state-disabled {
@@ -2589,7 +2616,7 @@ select[aria-invalid="true"] + span > .ui-state-default,
   background-image: none;
 }
 
-/* line 199, ../dev/_jquery.ui.theme.scss */
+/* line 228, ../dev/_jquery.ui.theme.scss */
 .ui-state-disabled .ui-icon {
   filter: Alpha(Opacity=35);
   /* For IE8 - See #6059 */
@@ -2598,7 +2625,7 @@ select[aria-invalid="true"] + span > .ui-state-default,
 /* Icons
 ----------------------------------*/
 /* states and images */
-/* line 207, ../dev/_jquery.ui.theme.scss */
+/* line 236, ../dev/_jquery.ui.theme.scss */
 .ui-icon {
   width: 32px;
   height: 16px;
@@ -2607,7 +2634,7 @@ select[aria-invalid="true"] + span > .ui-state-default,
 /* Misc visuals
 ----------------------------------*/
 /* Corner radius */
-/* line 217, ../dev/_jquery.ui.theme.scss */
+/* line 246, ../dev/_jquery.ui.theme.scss */
 .ui-corner-all,
 .ui-corner-top,
 .ui-corner-left,
@@ -2617,7 +2644,7 @@ select[aria-invalid="true"] + span > .ui-state-default,
   border-top-left-radius: 0;
 }
 
-/* line 223, ../dev/_jquery.ui.theme.scss */
+/* line 252, ../dev/_jquery.ui.theme.scss */
 .ui-corner-all,
 .ui-corner-top,
 .ui-corner-right,
@@ -2627,7 +2654,7 @@ select[aria-invalid="true"] + span > .ui-state-default,
   border-top-right-radius: 0;
 }
 
-/* line 229, ../dev/_jquery.ui.theme.scss */
+/* line 258, ../dev/_jquery.ui.theme.scss */
 .ui-corner-all,
 .ui-corner-bottom,
 .ui-corner-left,
@@ -2637,7 +2664,7 @@ select[aria-invalid="true"] + span > .ui-state-default,
   border-bottom-left-radius: 0;
 }
 
-/* line 235, ../dev/_jquery.ui.theme.scss */
+/* line 264, ../dev/_jquery.ui.theme.scss */
 .ui-corner-all,
 .ui-corner-bottom,
 .ui-corner-right,
@@ -2648,32 +2675,32 @@ select[aria-invalid="true"] + span > .ui-state-default,
 }
 
 /* Extra overrides */
-/* line 245, ../dev/_jquery.ui.theme.scss */
+/* line 274, ../dev/_jquery.ui.theme.scss */
 select + span {
   width: 100%;
 }
 
-/* line 249, ../dev/_jquery.ui.theme.scss */
+/* line 278, ../dev/_jquery.ui.theme.scss */
 .ui-selectmenu,
 .ui-selectmenu-status {
   min-height: 50px;
 }
 
-/* line 254, ../dev/_jquery.ui.theme.scss */
+/* line 283, ../dev/_jquery.ui.theme.scss */
 .ui-selectmenu-status {
   padding-top: 11px;
 }
 
-/* line 258, ../dev/_jquery.ui.theme.scss */
+/* line 287, ../dev/_jquery.ui.theme.scss */
 .ui-selectmenu-menu-dropdown {
   border-top: 0;
 }
 
-/* line 263, ../dev/_jquery.ui.theme.scss */
+/* line 292, ../dev/_jquery.ui.theme.scss */
 .ui-icon-triangle-1-s {
   background-image: none;
 }
-/* line 268, ../dev/_jquery.ui.theme.scss */
+/* line 297, ../dev/_jquery.ui.theme.scss */
 .ui-icon-triangle-1-s.ui-selectmenu-icon {
   background-image: none;
   text-indent: 0;
@@ -2682,7 +2709,7 @@ select + span {
   right: 0;
   margin-top: -11px;
 }
-/* line 278, ../dev/_jquery.ui.theme.scss */
+/* line 307, ../dev/_jquery.ui.theme.scss */
 .ui-icon-triangle-1-s:before {
   content: "";
   height: 1000%;
@@ -2691,7 +2718,7 @@ select + span {
   top: -100%;
   left: 0;
 }
-/* line 288, ../dev/_jquery.ui.theme.scss */
+/* line 317, ../dev/_jquery.ui.theme.scss */
 .ui-icon-triangle-1-s:after {
   font-family: FontAwesome;
   font-weight: normal;

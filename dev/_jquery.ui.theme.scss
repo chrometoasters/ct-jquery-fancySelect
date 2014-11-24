@@ -71,17 +71,32 @@ $fancySelect: (
     font-size: 1em;
 }
 .ui-widget-content {
-    border: 1px solid map-get($fancySelect, borderColorContent);
     background: map-get($fancySelect, bgColorContent);
     color: map-get($fancySelect, fcContent);
+    border: 1px solid map-get($fancySelect, borderColorContent);
 }
+
+.ui-selectmenu-menu li {
+    border-style: solid;
+}
+
+.ui-selectmenu-menu > ul > li {
+    &:first-child {
+        border-top-color: transparent !important;
+    }
+
+    &:last-child {
+        border-bottom-color: transparent !important;
+    }
+}
+
 .ui-widget-content a {
     color: map-get($fancySelect, fcContent);
 }
 .ui-widget-header {
-    border: 1px solid map-get($fancySelect, borderColorHeader);
     background: map-get($fancySelect, bgColorHeader);
     color: map-get($fancySelect, fcHeader);
+    border: 1px solid map-get($fancySelect, borderColorHeader);
     font-weight: bold;
 }
 .ui-widget-header a { color: map-get($fancySelect, fcHeader); }
@@ -91,10 +106,10 @@ $fancySelect: (
 .ui-state-default,
 .ui-widget-content .ui-state-default,
 .ui-widget-header .ui-state-default {
-    border: 1px solid map-get($fancySelect, borderColorDefault);
     background: map-get($fancySelect, bgColorError);
-    font-weight: map-get($fancySelect, fwDefault);
     color: map-get($fancySelect, fcDefault);
+    border: 1px solid map-get($fancySelect, borderColorDefault);
+    font-weight: map-get($fancySelect, fwDefault);
 }
 .ui-state-default a,
 .ui-state-default a:link,
@@ -107,12 +122,14 @@ $fancySelect: (
 .ui-widget-header .ui-state-hover,
 .ui-state-focus,
 .ui-widget-content .ui-state-focus,
-.ui-widget-header .ui-state-focus {
-    border: 1px solid map-get($fancySelect, borderColorHover);
+.ui-widget-header .ui-state-focus,
+.ui-widget-content.ui-selectmenu-menu-dropdown {
     background: map-get($fancySelect, bgColorHover);
-    font-weight: map-get($fancySelect, fwDefault);
     color: map-get($fancySelect, fcHover);
+    border-color: map-get($fancySelect, borderColorHover);
+    font-weight: map-get($fancySelect, fwDefault);
 }
+
 .ui-state-hover a,
 .ui-state-hover a:hover,
 .ui-state-hover a:link,
@@ -123,10 +140,10 @@ $fancySelect: (
 .ui-state-active,
 .ui-widget-content .ui-state-active,
 .ui-widget-header .ui-state-active {
-    border: 1px solid map-get($fancySelect, borderColorActive);
     background: map-get($fancySelect, bgColorActive);
-    font-weight: map-get($fancySelect, fwDefault);
     color: map-get($fancySelect, fcActive);
+    border-color: map-get($fancySelect, borderColorActive);
+    font-weight: map-get($fancySelect, fwDefault);
 }
 .ui-state-active a,
 .ui-state-active a:link,
@@ -140,9 +157,9 @@ $fancySelect: (
 .ui-state-highlight,
 .ui-widget-content .ui-state-highlight,
 .ui-widget-header .ui-state-highlight {
-    border: 1px solid map-get($fancySelect, borderColorHighlight);
     background: map-get($fancySelect, bgColorHighlight);
     color: map-get($fancySelect, fcHighlight);
+    border-color: map-get($fancySelect, borderColorHighlight);
 }
 .ui-state-highlight a,
 .ui-widget-content .ui-state-highlight a,
@@ -154,10 +171,22 @@ $fancySelect: (
 .ui-widget-content .ui-state-error,
 .ui-widget-header .ui-state-error,
 select[aria-invalid="true"] + span > .ui-state-default,
+.ui-widget-content.ui-selectmenu-menu-dropdown.not-valid,
 .ui-selectmenu-menu-dropdown.not-valid > .ui-state-hover { // DS added .ui-selectmenu-menu-dropdown.not-valid
-    border: 1px solid map-get($fancySelect, borderColorError);
     background: map-get($fancySelect, bgColorError);
-    color: map-get($fancySelect, fcError)
+    color: map-get($fancySelect, fcError);
+    border-color: map-get($fancySelect, borderColorError);
+}
+
+.ui-widget-content.ui-selectmenu-menu-dropdown.not-valid > .ui-state-hover,
+.ui-widget-content.ui-selectmenu-menu-dropdown.not-valid > .ui-state-focus {
+    &:first-child {
+        border-top-color: transparent !important;
+    }
+
+    &:last-child {
+        border-bottom-color: transparent !important;
+    }
 }
 
 // DS:
