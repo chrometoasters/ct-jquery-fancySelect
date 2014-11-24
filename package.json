@@ -1,0 +1,8 @@
+{
+  "name": "ct-jquery-fancySelect",
+  "description": "A wrapper for https://github.com/fnagel/jquery-ui/tree/selectmenu.",
+  "devDependencies": {
+    "jaguarjs-jsdoc": "0.0.1",
+    "jsdoc": "^3.3.0-alpha10"
+  }
+}

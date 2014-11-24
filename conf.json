@@ -1,0 +1,27 @@
+{
+    "tags": {
+        "allowUnknownTags": true
+    },
+    "markdown": {
+        "parser": "evilstreak"
+    },
+    "templates": {
+        "cleverLinks": false,
+        "monospaceLinks": false,
+        "default": {
+            "outputSourceFiles": false
+        },
+        "linenums": false
+    },
+    "source": {
+        "include": ["/Users/Dan/github/chrometoaster/ct-jquery-fancySelect/dist/ct-jquery-fancySelect.js"]
+    },
+    "opts": {
+        "template": "/Users/Dan/github/chrometoaster/ct-jquery-fancySelect/node_modules/jaguarjs-jsdoc",
+        "encoding": "utf8",
+        "recurse": true,
+        "private": true,
+        "lenient": true,
+        "destination": "/Users/Dan/github/chrometoaster/ct-jquery-fancySelect//js-docs/"
+    }
+}
