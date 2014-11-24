@@ -35,6 +35,7 @@
     ".gitignore",
     "config.rb",
     "Gemfile",
-    "Gemfile.lock"
+    "Gemfile.lock",
+    "documentation"
   ]
 }
