@@ -1,12 +1,10 @@
+ /**
+  * @file jQuery Fancy Select
+  * @copyright Chrometoaster 2013
+  * @author chrometoaster.com
+  */
+
 /*
- * File name: ct-jquery-fancySelect.js
- * Plugin name: fancySelect
- * Project name: OB (2013)
- *
- * Summary:
- * Markup:
- * Usage:
- *
  * Plugin architecture:
  * http://docs.jquery.com/Plugins/Authoring
  * + read: http://stackoverflow.com/questions/5162120/sharing-settings-across-methods-in-namespaced-jquery-plugin
@@ -43,6 +41,10 @@
         //global VARNAME:true
         "use strict";
 
+/** @namespace
+ * @name methods
+ */
+
         // NAMESPACING:
         // This type of plugin architecture allows you to encapsulate all of your methods
         // in the plugin's parent closure, and call them by first passing the string name
@@ -52,6 +54,15 @@
         //
         // Define a JSON object 'methods' to store public methods.
         var methods = {
+
+/** @method
+ * @name init
+ * @memberof methods
+ *
+ * @summary Checks for dependencies, stores settings with the select menu, runs setup on the select menu if the exclusion conditions are not met
+ *
+ * @returns {Boolean} - true if successful
+ */
 
             // called with $(el).fancySelect()
             init : function( options ) {
@@ -75,10 +86,6 @@
                          $('html').hasClass('lt-ie9'),
                          $('body').hasClass('woocommerce-checkout') // woocommerce has its own solution
                     ],
-                    parent_form_selector: 'form',
-                    focus_class: 'is-focussed',
-                    invalid_class: 'not-valid',
-                    required_class: 'is-required',
                     dropdown_max_height_px: (46 * 5 )
                 };
 
@@ -136,34 +143,35 @@
                     // 2a. $context.data('fancySelect').EXISTING_PROPERTY_SET;
                     // 2b. $context.data('fancySelect').EXISTING_PROPERTY_SET.EXISTING_PROPERTY_NAME;
 
+                    //console.log('$this', $this);
+
                     // Save our newly created settings with each element
                     $this.data('fancySelect', settings);
-
-                    // Also store the data with the form
-                    $(settings.parent_form_selector).data('fancySelect', settings);
 
                     // RUN CODE HERE
                     // set up $this
                     $this.fancySelect('_setup');
 
-                    $this.fancySelect('_setup_label_focus');
-                    $this.fancySelect('_setup_label_required');
-
                 });
 
             },
 
-            // Private methods
+// Private methods
+
+/** @method
+ * @name _setup
+ * @memberof methods
+ *
+ * @summary Applies the selectmenu plugin, sets the fancy select width and menu height, applies an invalid hook to the menu if the select is invalid
+ *
+ * @returns {Boolean} - true if successful
+ */
 
             _setup: function() {
 
                 var $this = $(this), // module
                     data = $this.data('fancySelect'),
-                    $parent_form = $(data.parent_form_selector).eq(0),
                     w = $this.parent().width() - 2; // this is sometimes miscalculated OB #5102
-
-                // TEST
-                //$this.after('<p>' + w + '</p>');
 
                 $this.selectmenu({
                     style: 'dropdown',
@@ -176,8 +184,7 @@
                         collision: "none"
                     },
                     // when the dropdown menu is opened
-                    open: function(e, object){
-                        // toggle .is-focussed class on label
+                    open: function(e, object) {
                         var $original_select = $(object.option.parentNode); // this is also $(e.target)
                         var $fancy_select_dropdown = $('#' + $original_select.attr('id') + '-menu' );
                         w = $original_select.parent().width() - 2;
@@ -186,201 +193,96 @@
                         // or the layout may have changed via a viewport resize or with a media query
                         $fancy_select_dropdown.css('width', w );
 
-                        // style the label when the faux select is focussed
-                        // this is retained until another element receives focus
-                        $original_select.prev('label, .label').fancySelect('_focus', $parent_form); // TODO
-
-                        // style the dropdown when the select is invalid
-                        if ( $original_select.attr('aria-invalid') === 'true' ) {
-                            $fancy_select_dropdown.fancySelect('_invalid', $parent_form);
-                        }
-
-                        /*
-                            // this resizing solution was unresolved..
-
-                            var iframe_height = $('body').outerHeight(true);
-                            var $fancy_select = $(e.currentTarget);
-                            var fancy_select_top = $fancy_select.position().top;
-                            var fancy_select_height = $fancy_select_dropdown.height();
-                            var fancy_select_visible_height = iframe_height - fancy_select_top;
-                            var fancy_select_offscreen_by = fancy_select_visible_height - fancy_select_height;
-                            var resize_addition = 0;
-
-                            // if some of the menu is obscured offscreen
-                            if ( fancy_select_offscreen_by < 0 ) {
-                                //resize_addition = -1 * fancy_select_offscreen_by; // make positive
-
-                                // set a max height for the menu
-                                // TODO: this crops the menu at the iframe,
-                                // but the iframe could be taller than the viewport so this is still messy:
-                                $fancy_select_dropdown.css('max-height', fancy_select_visible_height);
-                                // we could probably resolve this by using postmessage but it's a fiddle
-                            }
-                            else {
-                                $fancy_select_dropdown.css('max-height', 'none');
-                            }
-
-                            // this didn't always fire for some reason:
-
-                            if ( typeof CT_UI.resize_iframe !== 'undefined' ) {
-                                CT_UI.resize_iframe( resize_addition );
-                                // this action sometimes closes the select, if this happens then reopen it
-                                if ( ! $fancy_select_dropdown.hasClass('ui-selectmenu-open') ) {
-                                    $fancy_select.click();
-                                }
-                            }
-                        */
-
-                        // this was the alternate easy fix..
+                        // workaround for buggy iframe resizing
                         $fancy_select_dropdown.css('max-height', data.dropdown_max_height_px + 'px');
-                    },
-                    // when the dropdown menu is closed
-                    close: function(e, object){
-                        var $original_select = $(object.option.parentNode);
 
-                        // style the dropdown when the select is valid
-                        if ( $original_select.attr('aria-invalid') === 'false' ) {
-                            var $fancy_select_dropdown = $('#' + $original_select.attr('id') + '-menu' );
-                            $fancy_select_dropdown.fancySelect('_valid', $parent_form);
+                        if ( $original_select.attr('aria-invalid') === 'true' ) {
+                            $fancy_select_dropdown
+                                .attr('aria-invalid', true)
+                                .addClass('not-valid');
                         }
+                    },
+                    close: function(e, object) {
+                        var $original_select = $(object.option.parentNode); // this is also $(e.target)
+                        var $fancy_select_dropdown = $('#' + $original_select.attr('id') + '-menu' );
 
-                        //if ( typeof CT_UI.resize_iframe !== 'undefined' ) {
-                        //    CT_UI.resize_iframe();
-                        //}
+                        $fancy_select_dropdown
+                            .removeAttr('aria-invalid')
+                            .removeClass('not-valid');
                     }
                 });
 
-                // clicking a label highlights the faux select, but this also opens the faux select:
-                // while this is not normal behaviour for selects, it is as per the plugin and the designer likes this behaviour
-                // refer #5118
-                $this.prev('label, .label').click( function() {
-                    var $target = $('#' + $(this).attr('for') );
-                    $target.selectmenu('open');
-                });
-
-                //$this.fancySelect('_METHOD_NAME');
+                $this.fancySelect('_bind_to_label');
             },
 
-            _setup_label_focus: function() {
+/** @method
+ * @name _bind_to_label
+ * @memberof methods
+ *
+ * @summary Binds all label elements to this select
+ *
+ * @returns {Boolean} - true if successful
+ */
 
-                var $this = $(this), // module
-                    data = $this.data('fancySelect'),
-                    $parent_form = $(data.parent_form_selector).eq(0),
-                    focus_class = data.focus_class;
+            _bind_to_label: function() {
 
-                if ( ! $parent_form.length ) {
-                    return;
+                // select
+                var $select = $(this); // module
+                var select_id = $select.attr('id');
+
+                // label
+                var $label = $('label[for="' + select_id + '"]');
+
+                if ( ! $label.attr('id') ) {
+                    $label.attr('id', select_id + '-label');
                 }
 
-                var $select = $parent_form.find('select');
+                var label_id = $label.attr('id');
 
-                if ( ! $select.length ) {
-                    return;
-                }
+                // faux select
+                var $faux_select_elements = $();
+                var $faux_select = $('#' + select_id + '-button');
+                var $faux_select_internals = $faux_select.find('span');
+                var $faux_select_wrapper = $faux_select.parent('span');
+                var $faux_select_menu_wrapper = $('#' + select_id + '-menu').parent('.ui-selectmenu-menu');
+                var $faux_select_menu_options = $faux_select_menu_wrapper.find('div, ul, li, a, span');
 
-                //$(SOME_ELEMENT).bind('EVENT_NAME.fancySelect', methods.METHOD_NAME); // ??
+                $faux_select_wrapper.attr('tabindex', -1);
+                $faux_select_elements = $faux_select_elements
+                                            .add( $select )
+                                            .add( $faux_select )
+                                            .add( $faux_select_internals )
+                                            .add( $faux_select_wrapper )
+                                            .add( $faux_select_menu_wrapper )
+                                            .add( $faux_select_menu_options );
 
-                $parent_form
-                    // when a form element is focussed, style its label
-                    .on('focus.fancySelect', 'select', function() {
-                        $(this).prev('label, .label').fancySelect('_focus', $parent_form);
-                    })
-                    // when a form element is blurred, style its label
-                    .on('blur.fancySelect', 'select', function() {
-                        $(this).prev('label, .label').fancySelect('_blur', $parent_form);
-                    })
-                    // when a select element is focussed, style its label
-                    .on('focus.fancySelect', '.ui-selectmenu', function() { // note: this fires before the menu close callback
-                        // when the select menu is closed, the focus is moved to A.ui-selectmenu
+                $faux_select_elements.attr('data-labelledby', label_id);
 
-                        // when a select is closed by clicking on another select
-                        // update the style of any previously selected select's label
-                        $('.' + focus_class).fancySelect('_blur', $parent_form);
-
-                        // update the style of this select's label
-                        $(this).parent().prev().prev('label, .label').fancySelect('_focus', $parent_form);
-                    })
-                    // when a select element is blurred, style its label
-                    .on('blur.fancySelect', '.ui-selectmenu', function() {
-                        // when the user tabs off the select menu, the focus is lost
-                        // update the style of this select's label
-                        $(this).parent().prev().prev('label, .label').fancySelect('_blur', $parent_form);
-
-                        $(this).fancySelect('_focus', $parent_form);
-                    });
+                return label_id;
             },
 
-            _setup_label_required: function() {
+// Public methods
 
-                var $this = $(this), // module
-                    data = $this.data('fancySelect'),
-                    $parent_form = $this.parents(data.parent_form_selector).eq(0);
-
-                if ( ! $parent_form.length ) {
-                    return;
-                }
-
-                // style labels for required elements
-                $parent_form.find('[aria-required="true"]').prev('label, .label, .m-form--label').fancySelect('_required', $parent_form);
-
-                // style labels for invalid elements
-                $parent_form.find('[aria-invalid="true"]').prev('label, .label').fancySelect('_invalid', $parent_form);
-            },
-
-            // ADDERS
-            // ...
-
-            // SETTERS AND UNSETTERS
-
-            _focus: function($parent_form) {
-
-                var $this = $(this), // module
-                    data = $parent_form.data('fancySelect'),
-                    focus_class = data.focus_class;
-
-                    $this.addClass(focus_class);
-            },
-
-            _blur: function($parent_form) {
-
-                var $this = $(this), // module
-                    data = $parent_form.data('fancySelect'),
-                    focus_class = data.focus_class;
-
-                    $this.removeClass(focus_class);
-            },
-
-            _invalid: function($parent_form) {
-
-                var $this = $(this), // module
-                    data = $parent_form.data('fancySelect'),
-                    invalid_class = data.invalid_class;
-
-                    $this.addClass(invalid_class);
-            },
-
-            _valid: function($parent_form) {
-
-                var $this = $(this), // module
-                    data = $parent_form.data('fancySelect'),
-                    invalid_class = data.invalid_class;
-
-                    $this.removeClass(invalid_class);
-            },
-
-            _required: function($parent_form) {
-
-                var $this = $(this), // module
-                    data = $parent_form.data('fancySelect'),
-                    required_class = data.required_class;
-
-                    $this.addClass(required_class);
-            },
-
-            // GETTERS
-            // ...
-
-            // Public methods
+/** @method
+ * @name destroy
+ * @memberof methods
+ *
+ * @summary Reverts a fancy select element to its previous state: remove the jQuery UI selectmenu, remove data and unbind custom events
+ *
+ * @returns {Boolean} - true if successful
+ *
+ * @example
+ * // revert fancy select to their previous state
+ *    var $selects = $container.find('select');
+ *
+ *    $selects.each( function(i, select) {
+ *        var $select = $(select);
+ *
+ *        if ( $select.data('fancySelect') ) {
+ *            $select.fancySelect('destroy');
+ *        }
+ *    });
+ */
 
             // CLEANING UP
             destroy: function() {
@@ -389,20 +291,10 @@
 
                     // Create a jQuery object to use with this individual element
                     var $this = $(this), // module
-                        data = $this.data('fancySelect'),
-                        $parent_form = $(data.parent_form_selector).eq(0);
-
-                    // TODO: revert HTML on destroy
-                    //if ( data && data.PROPERTY ) {
-                    //    $this.state('_METHOD_NAME');
-                    //}
+                        data = $this.data('fancySelect');
 
                     // Unbind namespaced events
                     $this.unbind('.fancySelect');
-                    $parent_form.unbind('.fancySelect');
-
-                    // Remove data when deallocating our plugin
-                    $(data.parent_form_selector).removeData('fancySelect');
 
                     $this.removeData('fancySelect');
 
@@ -411,8 +303,6 @@
 
                     // no, REALLY remove it
                     $this.next('span').remove();
-
-                    //$parent_form -- use for data
                 });
             }
 
