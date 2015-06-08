@@ -4,7 +4,10 @@
 @import "bower_components/susyone-libsass/scss/__vendors/harp-susy/scss/susy";
 @import "bower_components/susyone-libsass/scss/__vendors/harp-compass/scss/compass";
 @import "bower_components/compass-mixins/lib/compass";
-@import "dev/libsass-helpers";
+
+// when importing into a parent project,
+// libsass uses this path relative to the parent's Gruntfile.js
+@import "dev/styles/libsass-helpers";
 
 // Font Awesome
 $fa-font-path: "../bower_components/Font-Awesome/fonts" !default; // Font-Awesome/scss/_variables.less, was "../font" (path is relative to css folder)
