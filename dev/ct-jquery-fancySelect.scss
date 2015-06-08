@@ -1,19 +1,20 @@
 // Compass plugins (Ruby Gems installed on the system)
 // Note that these must also be listed in the Gemfile and grunt-compass-config.json
-@import "compass";
 
-// Grid System, for rem
-@import "susy/sass/susy";
+@import "bower_components/susyone-libsass/scss/__vendors/harp-susy/scss/susy";
+@import "bower_components/susyone-libsass/scss/__vendors/harp-compass/scss/compass";
+@import "bower_components/compass-mixins/lib/compass";
+@import "dev/libsass-helpers";
 
 // Font Awesome
 $fa-font-path: "../bower_components/Font-Awesome/fonts" !default; // Font-Awesome/scss/_variables.less, was "../font" (path is relative to css folder)
-@import "Font-Awesome/scss/font-awesome";
-@import "ct-Font-Awesome-mixins/dist/mixins";
+@import "bower_components/Font-Awesome/scss/font-awesome";
+@import "bower_components/ct-Font-Awesome-mixins/dist/mixins";
 
 // jQuery UI styles
 // Using https://github.com/chriseppstein/sass-css-importer with the .css extension omitted
-@import "CSS:jquery-ui/themes/base/jquery.ui.core";
-@import "CSS:jquery-ui/themes/base/jquery.ui.selectmenu";
+@import "bower_components/jquery-ui/themes/base/jquery.ui.core";
+@import "bower_components/jquery-ui/themes/base/jquery.ui.selectmenu";
 
 // Our theme styles
-@import "jquery.ui.theme";
+@import "dev/jquery.ui.theme";

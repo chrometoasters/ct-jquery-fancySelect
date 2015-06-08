@@ -4,6 +4,13 @@ A wrapper for https://github.com/fnagel/jquery-ui/tree/selectmenu.
 
 __Please note: this plugin is optimised for internal Chrometoaster use. YMMV.__
 
+## Development
+
+To update this plugin:
+
+    npm install
+    grunt
+
 ## Installation
 
 1. In Terminal: `cd /PATH/TO/PROJECT-THEME-FOLDER`

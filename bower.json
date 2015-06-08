@@ -18,8 +18,8 @@
   "dependencies": {
     "jquery": "1.10.1",
     "jquery-ui": "https://github.com/fnagel/jquery-ui.git#selectmenu_v1.4.0",
-    "susy": "https://github.com/ericam/susy.git#v1.0.9",
-    "sass-css-importer": "https://github.com/chriseppstein/sass-css-importer.git",
+    "susyone-libsass": "https://github.com/SachaMPS/susyone-libsass.git",
+    "compass-mixins": "https://github.com/Igosuki/compass-mixins.git#~1.0.2",
     "Font-Awesome": "https://github.com/FortAwesome/Font-Awesome.git#v4.0.3",
     "ct-Font-Awesome-mixins": "https://github.com/chrometoasters/ct-Font-Awesome-mixins.git#v1.0.2"
   },
@@ -34,13 +34,9 @@
     "test/",
     ".gitignore",
     "config.rb",
-    "Gemfile",
-    "Gemfile.lock",
     "documentation",
     "conf.json",
-    "generate-jsdocs.command",
     "node_modules",
-    "npm-debug.log",
-    "package.json"
+    "npm-debug.log"
   ]
 }

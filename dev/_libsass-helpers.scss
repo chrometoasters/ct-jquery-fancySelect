@@ -1,0 +1,26 @@
+// source: https://github.com/Igosuki/compass-mixins/issues/34
+
+// prevents this warning on compilation:
+/*
+WARNING: You need to provide either a valid layout (number of columns)
+    or a valid media-query min-width breakpoint (length).
+    on line 110 of bower_components/susyone-libsass/scss/__vendors/harp-susy/scss/susy/_media.scss
+    from line 90 of bower_components/susyone-libsass/scss/__vendors/harp-susy/scss/susy/_grid.scss
+    from line NNN of resources/dev/styles/_layout.scss
+*/
+
+@function compact($vars...) {
+    $first: nth($vars, 1);
+    $sep: comma;
+    $list: ();
+    @if length($vars) == 1 and type_of($first) == 'list' {
+        $vars: $first;
+        $sep: list-separator($vars);
+    }
+    @each $var in $vars {
+        @if $var {
+            $list: append($list, $var, $sep);
+        }
+    }
+    @return $list;
+}
