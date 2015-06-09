@@ -11,13 +11,6 @@
  * A partial implementation of the Ruby display functions from Compass:
  * https://github.com/Compass/compass/blob/stable/core/lib/compass/core/sass_extensions/functions/display.rb
  */
-/*
-WARNING: You need to provide either a valid layout (number of columns)
-    or a valid media-query min-width breakpoint (length).
-    on line 110 of bower_components/susyone-libsass/scss/__vendors/harp-susy/scss/susy/_media.scss
-    from line 90 of bower_components/susyone-libsass/scss/__vendors/harp-susy/scss/susy/_grid.scss
-    from line NNN of resources/dev/styles/_layout.scss
-*/
 /*!
  *  Font Awesome 4.0.3 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)

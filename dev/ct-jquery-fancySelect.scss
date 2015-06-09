@@ -1,13 +1,7 @@
-// Compass plugins (Ruby Gems installed on the system)
-// Note that these must also be listed in the Gemfile and grunt-compass-config.json
-
+// rem and border-radius mixins
 @import "bower_components/susyone-libsass/scss/__vendors/harp-susy/scss/susy";
 @import "bower_components/susyone-libsass/scss/__vendors/harp-compass/scss/compass";
 @import "bower_components/compass-mixins/lib/compass";
-
-// when importing into a parent project,
-// libsass uses this path relative to the parent's Gruntfile.js
-@import "dev/styles/libsass-helpers";
 
 // Font Awesome
 $fa-font-path: "../bower_components/Font-Awesome/fonts" !default; // Font-Awesome/scss/_variables.less, was "../font" (path is relative to css folder)
