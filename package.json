@@ -1,8 +1,23 @@
 {
   "name": "ct-jquery-fancySelect",
   "description": "A wrapper for https://github.com/fnagel/jquery-ui/tree/selectmenu.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chrometoasters/ct-jquery-fancySelect.git#libsass"
+  },
+  "scripts": {
+    "postinstall": "bower install"
+  },
   "devDependencies": {
+    "bower": "^1.4.1",
+    "grunt": "0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-connect": "^0.10.1",
+    "grunt-contrib-qunit": "^0.7.0",
+    "grunt-jsdoc": "^0.6.7",
+    "grunt-sass": "^1.0.0",
     "jaguarjs-jsdoc": "0.0.1",
-    "jsdoc": "^3.3.0-alpha10"
+    "jit-grunt": "^0.9.1",
+    "time-grunt": "^1.1.1"
   }
 }

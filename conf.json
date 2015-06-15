@@ -14,14 +14,14 @@
         "linenums": false
     },
     "source": {
-        "include": ["/Users/Dan/github/chrometoaster/ct-jquery-fancySelect/dist/ct-jquery-fancySelect.js"]
+        "include": ["dist/ct-jquery-fancySelect.js"]
     },
     "opts": {
-        "template": "/Users/Dan/github/chrometoaster/ct-jquery-fancySelect/node_modules/jaguarjs-jsdoc",
+        "template": "node_modules/jaguarjs-jsdoc",
         "encoding": "utf8",
         "recurse": true,
         "private": true,
         "lenient": true,
-        "destination": "/Users/Dan/github/chrometoaster/ct-jquery-fancySelect//js-docs/"
+        "destination": "documentation/jsdoc/"
     }
 }
