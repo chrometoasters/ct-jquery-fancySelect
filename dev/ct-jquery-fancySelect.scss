@@ -1,13 +1,3 @@
-// rem and border-radius mixins
-@import "bower_components/susyone-libsass/scss/__vendors/harp-susy/scss/susy";
-@import "bower_components/susyone-libsass/scss/__vendors/harp-compass/scss/compass";
-@import "bower_components/compass-mixins/lib/compass";
-
-// Font Awesome
-$fa-font-path: "../bower_components/Font-Awesome/fonts" !default; // Font-Awesome/scss/_variables.less, was "../font" (path is relative to css folder)
-@import "bower_components/Font-Awesome/scss/font-awesome";
-@import "bower_components/ct-Font-Awesome-mixins/dist/mixins";
-
 // jQuery UI styles
 // Using https://github.com/chriseppstein/sass-css-importer with the .css extension omitted
 @import "bower_components/jquery-ui/themes/base/jquery.ui.core";
@@ -35,9 +25,10 @@ $fa-font-path: "../bower_components/Font-Awesome/fonts" !default; // Font-Awesom
 $fancySelect: (
     selectHeight: 50px,
     arrowColor: #141414,
-    arrowFontSizePx: 15px,
     arrowDividerColor: #dfdfdf,
-    arrowIconFA: $fa-var-chevron-down,
+    arrowCode: "\2193",
+    arrowFont: sans-serif,
+    arrowFontSizePx: 18px,
 
     ffDefault: #{Arial, "Helvetica Neue", Helvetica, sans-serif},
     fsDefault: 18px,
@@ -75,7 +66,7 @@ $fancySelect: (
 ----------------------------------*/
 .ui-widget {
     font-family: map-get($fancySelect, ffDefault);
-    @include rem( font-size, map-get($fancySelect, fsDefault) );
+    font-size: map-get($fancySelect, fsDefault);
 }
 .ui-widget .ui-widget {
     font-size: 1em;
@@ -264,25 +255,33 @@ select[aria-invalid="true"] + span > .ui-state-default,
 .ui-corner-top,
 .ui-corner-left,
 .ui-corner-tl {
-    @include border-top-left-radius( map-get($fancySelect, cornerRadius) );
+    -webkit-border-top-left-radius: map-get($fancySelect, cornerRadius);
+    -moz-border-radius-topleft: map-get($fancySelect, cornerRadius);
+    border-top-left-radius: map-get($fancySelect, cornerRadius)
 }
 .ui-corner-all,
 .ui-corner-top,
 .ui-corner-right,
 .ui-corner-tr {
-    @include border-top-right-radius( map-get($fancySelect, cornerRadius) );
+    -webkit-border-top-right-radius: map-get($fancySelect, cornerRadius);
+    -moz-border-radius-topright: map-get($fancySelect, cornerRadius);
+    border-top-right-radius: map-get($fancySelect, cornerRadius)
 }
 .ui-corner-all,
 .ui-corner-bottom,
 .ui-corner-left,
 .ui-corner-bl {
-    @include border-bottom-left-radius( map-get($fancySelect, cornerRadius) );
+    -webkit-border-bottom-left-radius: map-get($fancySelect, cornerRadius);
+    -moz-border-radius-bottomleft: map-get($fancySelect, cornerRadius);
+    border-bottom-left-radius: map-get($fancySelect, cornerRadius)
 }
 .ui-corner-all,
 .ui-corner-bottom,
 .ui-corner-right,
 .ui-corner-br {
-    @include border-bottom-right-radius( map-get($fancySelect, cornerRadius) );
+    -webkit-border-bottom-right-radius: map-get($fancySelect, cornerRadius);
+    -moz-border-radius-bottomright: map-get($fancySelect, cornerRadius);
+    border-bottom-right-radius: map-get($fancySelect, cornerRadius)
 }
 
 /* Extra overrides */
@@ -332,9 +331,14 @@ select + span {
 
     // after - arrow icon
     &:after {
-        @include icon( map-get($fancySelect, arrowIconFA) );
+        content: map-get($fancySelect, arrowCode);
+        font-family: map-get($fancySelect, arrowFont);
+        font-size: map-get($fancySelect, arrowFontSizePx) !important; // ! overrides 3rd party icon (ct-jquery-fancySelect/issues/2)
+        font-weight: normal;
+        font-style: normal;
+        text-decoration: inherit;
+        -webkit-font-smoothing: antialiased;
         speak: none;
-        @include rem(font-size, map-get($fancySelect, arrowFontSizePx) !important ); // ! overrides 3rd party icon (ct-jquery-fancySelect/issues/2)
         line-height: normal;
         color: map-get($fancySelect, arrowColor);
         text-align: center;

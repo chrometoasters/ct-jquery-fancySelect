@@ -22,6 +22,6 @@
         "recurse": true,
         "private": true,
         "lenient": true,
-        "destination": "documentation/js-docs/"
+        "destination": "documentation/jsdoc/"
     }
 }

@@ -55,9 +55,6 @@ module.exports = function(grunt) {
 
     jsdoc: {
       dist : {
-        src: [
-          'dist/ct-jquery-fancySelect.js'
-        ],
         options: {
           destination: 'documentation/jsdoc',
           configure: 'conf.json',
@@ -108,10 +105,9 @@ module.exports = function(grunt) {
   -------------------------------------------------------------------------------------*/
 
   grunt.registerTask("default", [
-    "sass:dist"
-    // TODO (buggy)
-    //"connect:qunit",
-    //"qunit:dist",
-    //"jsdoc:dist"
+    "sass:dist",
+    "connect:qunit",
+    //"qunit:dist", // "PhantomJS timed out, possibly due to a missing QUnit start() call.""
+    "jsdoc:dist"
   ]);
 };

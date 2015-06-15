@@ -38,7 +38,7 @@ Or the uncompiled SCSS:
 
 1. `dev/ct-jquery-fancySelect.scss` (this plugin, bundled)
 
-Note that the latter has various dependencies - see `bower.json`, `config.rb` and `/Gemfile`.
+Note that the latter has various dependencies - see `bower.json`.
 
 #### JavaScript
 
@@ -74,7 +74,9 @@ Styles may be customised by importing the uncompiled `.scss`, and preceding this
         arrowColor: #141414,
         arrowFontSizePx: 15px,
         arrowDividerColor: #dfdfdf,
-        arrowIconFA: $fa-var-chevron-down,
+        arrowCode: "\2193",
+        arrowFont: sans-serif,
+        arrowFontSizePx: 18px,
 
         ffDefault: #{Arial, "Helvetica Neue", Helvetica, sans-serif},
         fsDefault: 18px,
@@ -132,5 +134,5 @@ As this is the first release of this plugin there are some limitations:
 1. No support for Mustache templating
 1. Customising the styles requires replacing an entire map (vs [replacing a value](http://erskinedesign.com/blog/setting-typographic-scale-with-sass-maps/))
 1. Need to merge in other enhancements from older projects
-1. Select sizing is a mixture of pixels, ems and rems
+1. Select sizing is a mixture of pixels and ems
 1. Selects too narrow when JavaScript disabled

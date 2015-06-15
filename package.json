@@ -3,7 +3,7 @@
   "description": "A wrapper for https://github.com/fnagel/jquery-ui/tree/selectmenu.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/chrometoasters/ct-jquery-fancySelect"
+    "url": "https://github.com/chrometoasters/ct-jquery-fancySelect.git#libsass"
   },
   "scripts": {
     "postinstall": "bower install"
